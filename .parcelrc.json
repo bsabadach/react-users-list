@@ -1,0 +1,6 @@
+{
+  "transforms": {
+    "*.module.css": ["@parcel/transformer-css-modules", "..."],
+    "*.css": ["@parcel/transformer-css", "@parcel/transformer-postcss"]
+  }
+}

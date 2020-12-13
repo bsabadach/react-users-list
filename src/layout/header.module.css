@@ -1,0 +1,18 @@
+.nav {
+  width: 100vw;
+  background-image: var(--gradient);
+  background-size: 100vw 10px;
+  background-repeat: no-repeat;
+  padding-top: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  background-image: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-family: 'Rubik', sans-serif !important;
+}

@@ -1,0 +1,6 @@
+.idea
+.parcel-cache
+src/.cache
+node_modules
+dist
+build

@@ -1,0 +1,79 @@
+.user-error-modal {
+  color: var(--gradient);
+}
+
+.user-modal-wrapper {
+  width: auto;
+  height: auto;
+  min-width: 650px;
+  min-height: 300px;
+}
+
+.user-modal-content {
+  opacity: 0;
+  transition: opacity 250ms;
+}
+
+.user-modal-content.ready {
+  transition: opacity 250ms;
+  opacity: 1;
+}
+
+.users-list {
+  min-height: 600px;
+}
+
+.user-card {
+  min-height: 375px;
+}
+
+.user-image-placeholder {
+  display: block;
+  width: 232px;
+  min-height: 235px;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  -webkit-animation: placeholder-shimmer 2s linear;
+  animation: placeholder-shimmer 2s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-color: #fff;
+  background-image: linear-gradient(
+    to right,
+    #00000014 0,
+    #00000026 15%,
+    #00000014 30%
+  );
+  background-size: 1200px 100%;
+  opacity: 1;
+  transition: 250ms opacity;
+}
+
+.user-image-placeholder.loaded {
+  opacity: 0;
+  display: none;
+}
+
+.user-image {
+  display: none;
+}
+
+.user-image.ready {
+  display: block;
+}
+
+.detail-Wrapper {
+  min-height: 140px;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: -1200px 0;
+  }
+
+  100% {
+    background-position: 1200px 0;
+  }
+}
