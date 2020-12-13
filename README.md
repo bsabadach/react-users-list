@@ -3,3 +3,6 @@
  - react hooks
  - observable remote data for managing requests lifecycle
  - tailwind css framework
+ 
+ 
+demo: https://bs-users-list-demo-9bc0bb.netlify.app/
