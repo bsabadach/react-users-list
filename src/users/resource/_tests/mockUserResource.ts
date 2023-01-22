@@ -1,6 +1,6 @@
 import * as Observable from 'zen-observable'
 import { RemoteData } from '../../../common/http/remoteData'
-import { UserResource, UsersPayload } from '../../remote/usersResource'
+import { UserResource, UsersPayload } from '../usersResource'
 import { initialUser, User } from '../../model/usersState'
 
 export const makeMockUserResource = (

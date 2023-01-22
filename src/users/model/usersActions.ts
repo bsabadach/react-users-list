@@ -1,7 +1,7 @@
 import { GetState, UpdateState } from '../../common/store'
 import { initialStatus } from '../../common/http/remoteData'
 
-import { UserResource } from '../remote/usersResource'
+import { UserResource } from '../resource/usersResource'
 import { initialState, initialUser, User, UsersState } from '../index'
 
 export const makeActions = (usersResource: UserResource) => (
