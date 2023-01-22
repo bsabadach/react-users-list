@@ -7,8 +7,8 @@ import { initialStatus, RemoteData } from '../../../common/http/remoteData'
 import { UserResource, UsersPayload } from '../usersResource'
 
 let mockUserResource: UserResource
-let mockResponse: RemoteData<User, Error>
-let mockLoadAllResponse: RemoteData<UsersPayload, Error>
+let mockResponse: RemoteData<User>
+let mockLoadAllResponse: RemoteData<UsersPayload>
 
 test.beforeEach(() => {
   mockResponse = {

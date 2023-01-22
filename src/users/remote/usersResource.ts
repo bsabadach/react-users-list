@@ -2,10 +2,10 @@ import { HTTP } from '../../common/http/httpClient'
 import { User } from '..'
 
 const headers = {
-  'app-id': '5f8c5ea1bac30021bd9ea814',
+  'app-id': '63cd1cd766fd050934f194be',
   'Cache-Control': 'no-cache'
 }
-const ENDPOINT = 'https://dummyapi.io/data/api/user'
+const ENDPOINT = 'https://dummyapi.io/data/v1/user'
 
 export type UsersPayload = {
   data: User[]

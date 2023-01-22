@@ -14,8 +14,7 @@ export type Status = {
   code?: number
 }
 
-export type RemoteData<T, E> = {
+export type RemoteData<T> = {
   status: Status
   data: T
-  error?: E
 }

@@ -4,8 +4,8 @@ import { UserResource, UsersPayload } from '../../remote/usersResource'
 import { initialUser, User } from '../../model/usersState'
 
 export const makeMockUserResource = (
-  mockLoadResponse: RemoteData<User, Error>,
-  mockLoadAllResponse: RemoteData<UsersPayload, Error>
+  mockLoadResponse: RemoteData<User>,
+  mockLoadAllResponse: RemoteData<UsersPayload>
 ): UserResource => ({
   load: (_: string | undefined) => {
     return new Observable(subscriber => {

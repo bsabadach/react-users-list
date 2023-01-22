@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FC, useCallback, useEffect, useMemo } from 'react'
+import { FC, useCallback, useEffect } from 'react'
 
 import { useModalStore } from '../common/ui/modal'
 import { useUsersStore } from './model/UserStore'
@@ -35,19 +35,14 @@ export const UsersView: FC = () => {
     }
   }, [usersFetchStatus])
 
-  return useMemo(
-    () => (
-      <>
-        <UsersList onSelectUser={handleSelectUser} users={users} />
-        {usersFetchStatus?.success && (
-          <UsersModalContainer
-            selectedUser={selectedUser}
-            selectUserFetchStatus={selectUserFetchStatus}
-          />
-        )}
-        {usersFetchStatus?.hasError && <UsersErrorModal />}
-      </>
-    ),
-    [users, selectUserFetchStatus, selectedUser]
-  )
+  return <>
+    <UsersList onSelectUser={handleSelectUser} users={users} />
+    {usersFetchStatus?.success && (
+      <UsersModalContainer
+        selectedUser={selectedUser}
+        selectUserFetchStatus={selectUserFetchStatus}
+      />
+    )}
+    {usersFetchStatus?.hasError && <UsersErrorModal />}
+  </>
 }

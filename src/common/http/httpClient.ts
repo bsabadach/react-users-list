@@ -13,21 +13,20 @@ const MUTATION_METHOD = ['POST', 'PATCH', 'PUT']
 
 export const HTTP = <T>(options: AxiosRequestConfig = {}) => {
   const client: AxiosInstance = axios.create(options)
-  const defaultRemoteData: RemoteData<T, Error> = {
+  const defaultRemoteData: RemoteData<T> = {
     status: {
       pending: false,
       success: false,
       notFound: false,
       hasError: false
     },
-    data: {} as T,
-    error: undefined
+    data: {} as T
   }
 
   const processResponse = (
-    remoteData: RemoteData<T, Error>,
+    remoteData: RemoteData<T>,
     response: AxiosResponse<T>
-  ): RemoteData<T, Error> => {
+  ): RemoteData<T> => {
     return {
       ...remoteData,
       status: {
@@ -42,10 +41,10 @@ export const HTTP = <T>(options: AxiosRequestConfig = {}) => {
   }
 
   const processError = (
-    remoteData: RemoteData<T, Error>,
-    error: AxiosError<T>
-  ): RemoteData<T, Error> => {
-    const statusCode: number = error?.response?.status as number
+    remoteData: RemoteData<T>,
+    err: AxiosError<T> | undefined
+  ): RemoteData<T> => {
+    const statusCode: number = err?.response?.status as number
     return {
       ...remoteData,
       status: {
@@ -55,8 +54,7 @@ export const HTTP = <T>(options: AxiosRequestConfig = {}) => {
         notFound: statusCode === 404,
         hasError: true,
         code: statusCode
-      },
-      error: error.toJSON() as Error
+      }
     }
   }
 
@@ -69,25 +67,24 @@ export const HTTP = <T>(options: AxiosRequestConfig = {}) => {
     const isMutation = MUTATION_METHOD.includes(httpMethod)
     const method = client[
       httpMethod.toLowerCase() as keyof AxiosInstance
-    ] as Function
+      ] as Function
     const args = isMutation
       ? [url, body, { params: queryParams }]
       : [url, { params: queryParams }]
     const request: AxiosPromise<T> = method(...args)
 
-    return new Observable<RemoteData<T, Error>>(subscriber => {
+    return new Observable<RemoteData<T>>(subscriber => {
       const remoteData = { ...defaultRemoteData }
       remoteData.status.pending = true
       subscriber.next(defaultRemoteData)
       request
         .then(response => {
           subscriber.next(processResponse(remoteData, response))
-          subscriber.complete()
         })
         .catch((err: Error) => {
           subscriber.next(processError(remoteData, err as AxiosError<T>))
-          subscriber.complete()
         })
+        .finally(() => subscriber.complete())
     })
   }
 

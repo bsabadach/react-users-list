@@ -19,7 +19,7 @@ export const configureStoreContext = <S extends object, ACT extends Actions>(
   })
 
   const StoreProvider: FC = ({ children }) => {
-    const [state, setState] = useState(currentState)
+    const [state, setState] = useState(initialStoreState)
     const updateState = (newOrPartialState: Partial<S>) => {
       Object.assign(currentState, newOrPartialState)
       setState({

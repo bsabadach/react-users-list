@@ -9,7 +9,7 @@ export const makeActions = (usersResource: UserResource) => (
   updateState: UpdateState<UsersState>
 ) => ({
   load(id: string | undefined) {
-    usersResource.load(id).subscribe(({ data, status, error }) => {
+    usersResource.load(id).subscribe(({ data, status }) => {
       if (status.pending) {
         updateState({
           selectedUser: {} as User,
@@ -24,7 +24,7 @@ export const makeActions = (usersResource: UserResource) => (
         })
         return
       }
-      if (error) {
+      if (status.hasError) {
         updateState({
           selectUserFetchStatus: status
         })
@@ -32,14 +32,7 @@ export const makeActions = (usersResource: UserResource) => (
     })
   },
   loadAll(simulateError: boolean = false) {
-    usersResource.loadAll().subscribe(({ status, data, error }) => {
-      if (status.pending) {
-        updateState({
-          ...initialState,
-          usersFetchStatus: status
-        })
-        return
-      }
+    usersResource.loadAll().subscribe(({ status, data }) => {
       if (simulateError) {
         status.hasError = true
         status.success = false
@@ -51,6 +44,13 @@ export const makeActions = (usersResource: UserResource) => (
         })
         return
       }
+      if (status.pending) {
+        updateState({
+          ...initialState,
+          usersFetchStatus: status
+        })
+        return
+      }
       if (status.success) {
         updateState({
           users: data.data,
@@ -58,7 +58,7 @@ export const makeActions = (usersResource: UserResource) => (
         })
         return
       }
-      if (error) {
+      if (status.hasError) {
         updateState({
           usersFetchStatus: status
         })
