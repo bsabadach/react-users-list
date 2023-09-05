@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FC } from 'react'
 
-import { ModalContainer } from '../../common/ui/modal'
+import { OverlayContainer } from '../../common/ui/modal'
 import { UsersModalContent } from './UsersModalContent'
 import { useQuery } from 'react-query'
 import { usersResource } from '../resource/usersResource'
@@ -14,8 +14,8 @@ type Props = {
 export const UsersModal: FC<Props> = ({ selectedUserId }) => {
   const { data: user, status } = useQuery(['user', selectedUserId], () => usersResource.load(selectedUserId))
   return (
-    <ModalContainer>
+    <OverlayContainer>
       <UsersModalContent fetchStatus={status} user={user} />
-    </ModalContainer>
+    </OverlayContainer>
   )
 }

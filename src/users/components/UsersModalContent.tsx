@@ -7,7 +7,7 @@ import { BlockUI } from '../../common/ui/uiblocker/BlockUI'
 import { QueryStatus } from 'react-query'
 
 import styles from './user.module.css'
-import classNames from 'classnames'
+import cx from 'classnames'
 
 const formatDate = (input: string | undefined) => {
   if (!input) return ''
@@ -20,10 +20,9 @@ type Props = {
 }
 
 export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
-  <div className={classNames('relative p-4 modal-overlay',styles.userModalContent)}>
+  <div className={cx('relative p-4',styles.userModalWrapper)}>
     <BlockUI when={fetchStatus==='loading'}>
-      <div
-      >
+      <div>
         <div className="overflow-hidden flex flex-row mb-4">
           <div className="w-1/3">
             <img

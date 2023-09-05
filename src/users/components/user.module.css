@@ -1,6 +1,6 @@
 .user-modal-wrapper {
-  width: auto;
-  height: auto;
+  width: 650px;
+  height: 300px;
   min-width: 650px;
   min-height: 300px;
 }
