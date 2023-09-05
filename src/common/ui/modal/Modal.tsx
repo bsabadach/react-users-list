@@ -3,14 +3,14 @@ import { FC, PropsWithChildren } from 'react'
 
 import cx from 'classnames'
 
-import * as styles from './modal.module.css'
+import styles from './modal.module.css'
 
 export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({ children, close }) => {
   return <div>
     <div
     className={cx(
       'bg-white rounded shadow max-w-full max-h-full',
-      styles.modalWrapper
+      styles.overlay
     )}
   >
     <div className='flex flex-col'>

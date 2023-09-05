@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { UserCard } from './UserCard'
 import { SimpleUser } from '..'
 
-import * as styles from './user.module.css'
+import styles from './user.module.css'
 
 type Props = {
   onSelectUser: (id: string) => void

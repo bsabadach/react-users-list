@@ -3,7 +3,7 @@ import cx from 'classnames'
 
 import { SimpleUser } from '..'
 
-import * as styles from './user.module.css'
+import styles from './user.module.css'
 import { useCallback, useEffect, useState } from 'react'
 
 type Props = {

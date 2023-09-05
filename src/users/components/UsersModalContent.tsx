@@ -6,6 +6,9 @@ import { User } from '../model/user'
 import { BlockUI } from '../../common/ui/uiblocker/BlockUI'
 import { QueryStatus } from 'react-query'
 
+import styles from './user.module.css'
+import classNames from 'classnames'
+
 const formatDate = (input: string | undefined) => {
   if (!input) return ''
   return format(toDate(new Date(input)), 'yyyy-MM-dd')
@@ -17,7 +20,7 @@ type Props = {
 }
 
 export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
-  <div className='relative p-4 modal-overlay'>
+  <div className={classNames('relative p-4 modal-overlay',styles.userModalContent)}>
     <BlockUI when={fetchStatus==='loading'}>
       <div
       >

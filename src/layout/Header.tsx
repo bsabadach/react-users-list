@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import cx from 'classnames'
-import * as styles from './header.module.css'
+import styles from './header.module.css'
 
 export const Header = () => {
   return (

@@ -14,7 +14,7 @@ type Props = {
 export const UsersModal: FC<Props> = ({ selectedUserId }) => {
   const { data: user, status } = useQuery(['user', selectedUserId], () => usersResource.load(selectedUserId))
   return (
-    <ModalContainer isOpened={true}>
+    <ModalContainer>
       <UsersModalContent fetchStatus={status} user={user} />
     </ModalContainer>
   )
