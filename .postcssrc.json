@@ -1,9 +1,0 @@
-{
-  "modules": true,
-  "plugins": {
-    "postcss-modules": {
-      "generateScopedName": "[local]_[hash:base64:5]",
-      "camelCase": true
-    }
-  }
-}

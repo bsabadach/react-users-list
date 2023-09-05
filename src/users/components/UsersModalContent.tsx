@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { FC } from 'react'
 import { format, toDate } from 'date-fns'
-import cx from 'classnames'
 
 import { User } from '../model/user'
 import { BlockUI } from '../../common/ui/uiblocker/BlockUI'
-import * as styles from './user.module.css'
 import { QueryStatus } from 'react-query'
 
 const formatDate = (input: string | undefined) => {
@@ -19,12 +17,9 @@ type Props = {
 }
 
 export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
-  <div className={cx('relative p-4', styles.userModalWrapper)}>
+  <div className='relative p-4 modal-overlay'>
     <BlockUI when={fetchStatus==='loading'}>
       <div
-        className={cx(styles.userModalContent, {
-          [styles.ready]: fetchStatus==='success'
-        })}
       >
         <div className="overflow-hidden flex flex-row mb-4">
           <div className="w-1/3">

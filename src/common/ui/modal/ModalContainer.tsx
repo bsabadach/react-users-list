@@ -4,7 +4,7 @@ import { createPortal } from 'react-dom'
 
 import { Modal } from './Modal'
 
-const overlayWrapper = document.querySelector('#modal')
+const overlayWrapper = document.querySelector('#overlay')
 
 export const ModalContainer: FC<PropsWithChildren<{ isOpened: boolean }>> = ({ children,isOpened }) => {
   return isOpened

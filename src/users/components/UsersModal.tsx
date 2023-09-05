@@ -13,7 +13,6 @@ type Props = {
 
 export const UsersModal: FC<Props> = ({ selectedUserId }) => {
   const { data: user, status } = useQuery(['user', selectedUserId], () => usersResource.load(selectedUserId))
-  debugger
   return (
     <ModalContainer isOpened={true}>
       <UsersModalContent fetchStatus={status} user={user} />

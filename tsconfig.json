@@ -18,7 +18,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "outDir": "build",
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "types": ["vite/client"]
   },
   "include": [
     "./src/**/*",
