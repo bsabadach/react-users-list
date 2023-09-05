@@ -1,48 +1,22 @@
 import * as React from 'react'
-import { FC, useCallback, useEffect } from 'react'
-
-import { useModalStore } from '../common/ui/modal'
-import { useUsersStore } from './model/UserStore'
+import { FC, useState } from 'react'
+import { useQuery } from 'react-query'
 import { UsersList } from './components/UsersList'
-import { UsersModalContainer } from './components/UsersModalContainer'
-import { UsersErrorModal } from './components/UsersErrorModal'
+import { usersResource } from './resource/usersResource'
+import { UsersModal } from './components/UsersModal'
 
 export const UsersView: FC = () => {
-  const {
-    actions: { open }
-  } = useModalStore()
-  const {
-    actions: { loadAll, load, resetUser },
-    state: { users, usersFetchStatus, selectedUser, selectUserFetchStatus }
-  } = useUsersStore()
+  const [modalOpened, setModalOpened] = useState(false)
+  const [selectedUserId, setSelectedUserId] = useState("")
+  const { data: users, isSuccess } = useQuery(['users'], usersResource.loadAll)
 
-  const handleSelectUser = useCallback(
-    (selectedUserId: string | undefined) => {
-      resetUser()
-      open()
-      load(selectedUserId)
-    },
-    [selectedUser]
-  )
-
-  useEffect(() => {
-    loadAll()
-  }, [])
-
-  useEffect(() => {
-    if (usersFetchStatus?.hasError) {
-      open()
-    }
-  }, [usersFetchStatus])
+  const handleSelectUser = (selectedUserId: string) => {
+    setSelectedUserId(selectedUserId)
+    setModalOpened(true)
+  }
 
   return <>
-    <UsersList onSelectUser={handleSelectUser} users={users} />
-    {usersFetchStatus?.success && (
-      <UsersModalContainer
-        selectedUser={selectedUser}
-        selectUserFetchStatus={selectUserFetchStatus}
-      />
-    )}
-    {usersFetchStatus?.hasError && <UsersErrorModal />}
+    {isSuccess && <UsersList onSelectUser={handleSelectUser} users={users} />}
+    {modalOpened && <UsersModal selectedUserId={selectedUserId} />}
   </>
 }

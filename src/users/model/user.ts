@@ -26,14 +26,14 @@ export type SimpleUser = Pick<
   'id' | 'title' | 'lastName' | 'firstName' | 'email' | 'picture'
 >
 
-export type UsersState = {
+export type User = {
   usersFetchStatus: Status
   users: SimpleUser[]
   selectedUser: User
   selectUserFetchStatus: Status
 }
 
-export const initialState: UsersState = {
+export const initialState: User = {
   usersFetchStatus: initialStatus,
   users: Array(20).fill(initialUser as SimpleUser),
   selectedUser: initialUser,
