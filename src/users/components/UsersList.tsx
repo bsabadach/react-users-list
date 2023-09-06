@@ -2,9 +2,9 @@ import * as React from 'react'
 import cx from 'classnames'
 
 import { UserCard } from './UserCard'
-import { SimpleUser } from '..'
 
 import styles from './user.module.css'
+import { SimpleUser } from '../model/user'
 
 type Props = {
   onSelectUser: (id: string) => void
@@ -13,7 +13,7 @@ type Props = {
 
 export const UsersList = ({ users, onSelectUser }: Props) => {
   return (
-    <section
+    <section data-testid="users-list"
       className={cx('m-auto container bg-white relative', styles.usersList)}
     >
       <div className="flex flex-wrap items-center justify-center">

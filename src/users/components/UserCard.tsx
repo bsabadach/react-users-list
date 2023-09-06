@@ -1,7 +1,6 @@
 import * as React from 'react'
-import cx from 'classnames'
-
 import { useCallback, useState } from 'react'
+import cx from 'classnames'
 import { SimpleUser } from '../model/user'
 import styles from './user.module.css'
 
@@ -28,7 +27,7 @@ export const UserCard = ({ user, onSelectUser }: Props) => {
     )}
   >
     <div
-      className="relative overflow-hidden bg-white rounded-lg shadow-xl hover:shadow-raised transform transition duration-200 hover:-translate-y-2">
+      className='relative overflow-hidden bg-white rounded-lg shadow-xl hover:shadow-raised transform transition duration-200 hover:-translate-y-2'>
       <div
         className={cx(styles.userImagePlaceholder, {
           [styles.loaded]: imageLoaded
@@ -49,23 +48,22 @@ export const UserCard = ({ user, onSelectUser }: Props) => {
           styles.detailWrapper
         )}
       >
-        <p className="font-medium text-gray-900 leading-normal mb-2">
+        <p className='font-medium text-gray-900 leading-normal mb-2'>
           {user.firstName} {user.lastName}
         </p>
         <p
-          className="font-hairline text-sm text-gray-500 truncate mb-4"
+          className='font-hairline text-sm text-gray-500 truncate mb-4'
           title={user.email}
         >
           {user.email}
         </p>
-        {imageLoaded && (
-          <button
-            onClick={handleSelectUser}
-            className="text-gray-500 w-full text-right"
-          >
-            <i className="fas fa-eye fa-fw" />
-          </button>
-        )}
+        <button
+          onClick={handleSelectUser}
+          className='text-gray-500 w-full text-right'
+          data-testid={`select-user-${user?.id}`}
+        >
+          <i className='fas fa-eye fa-fw' />
+        </button>
       </div>
     </div>
   </div>

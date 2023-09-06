@@ -19,11 +19,13 @@
     "noUnusedParameters": true,
     "outDir": "build",
     "noEmitOnError": true,
-    "types": ["vite/client"]
+    "types": ["vite/client","@testing-library/jest-dom"]
+
   },
   "include": [
     "./src/**/*",
-    "./typings/global.d.ts"
+    "./typings/global.d.ts",
+    "./jest-setup"
   ],
   "exclude": [
     "./dist",

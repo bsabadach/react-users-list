@@ -15,7 +15,7 @@ export const UsersModal: FC<Props> = ({ selectedUserId }) => {
   const { data: user, status } = useQuery(['user', selectedUserId], () => usersResource.load(selectedUserId))
   return (
     <Overlay>
-      <UsersModalContent fetchStatus={status} user={user} />
+      <UsersModalContent data-testid='users-modal' fetchStatus={status} user={user} />
     </Overlay>
   )
 }

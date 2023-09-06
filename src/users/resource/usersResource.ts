@@ -5,16 +5,16 @@ const headers = {
   'Cache-Control': 'no-cache'
 }
 
-const http=axios.create({headers})
+const http = axios.create({ headers })
 const ENDPOINT = 'https://dummyapi.io/data/v1/user'
 
 export const usersResource = {
   load: async (id: string | undefined) => {
-    const response=await http.get(`${ENDPOINT}/${id}`)
-    return response.data;
+    const response = await http.get(`${ENDPOINT}/${id}`)
+    return response.data
   },
-  loadAll: async() => {
-    const response=await http.get(`${ENDPOINT}`)
-    return response.data.data;
+  loadAll: async () => {
+    const response = await http.get(`${ENDPOINT}`)
+    return response.data.data
   }
 }
