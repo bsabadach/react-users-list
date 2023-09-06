@@ -5,7 +5,7 @@ const headers = {
   'Cache-Control': 'no-cache'
 }
 
-const http=axios.create({headers: headers})
+const http=axios.create({headers})
 const ENDPOINT = 'https://dummyapi.io/data/v1/user'
 
 export const usersResource = {
