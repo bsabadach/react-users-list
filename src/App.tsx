@@ -1,6 +1,6 @@
-import * as React from 'react'
+import React from 'react'
+import { StrictMode } from 'react'
 
-import { UsersStoreProvider } from './users/model/UserStore'
 import { UsersView } from './users'
 
 import AppContext from './AppContext'
@@ -9,14 +9,14 @@ import { Header } from './layout/Header'
 import './app.css'
 
 export const App = () => (
-  <AppContext>
-    <UsersStoreProvider>
+  <StrictMode>
+    <AppContext>
       <Header />
       <main>
         <UsersView />
       </main>
-    </UsersStoreProvider>
-  </AppContext>
+    </AppContext>
+  </StrictMode>
 )
 
 export default App

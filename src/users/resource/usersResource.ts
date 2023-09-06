@@ -1,27 +1,20 @@
-import { HTTP } from '../../common/http/httpClient'
-import { User } from '..'
+import axios from 'axios'
 
 const headers = {
   'app-id': '63cd1cd766fd050934f194be',
   'Cache-Control': 'no-cache'
 }
+
+const http = axios.create({ headers })
 const ENDPOINT = 'https://dummyapi.io/data/v1/user'
 
-export type UsersPayload = {
-  data: User[]
-  limit?: number
-  offset?: number
-  page?: number
-  total?: number
-}
-
-export type UserResource = typeof usersResource
-
 export const usersResource = {
-  load: (id: string | undefined) => {
-    return HTTP<User>({ headers }).get(`${ENDPOINT}/${id}`)
+  load: async (id: string | undefined) => {
+    const response = await http.get(`${ENDPOINT}/${id}`)
+    return response.data
   },
-  loadAll: () => {
-    return HTTP<UsersPayload>({ headers }).get(`${ENDPOINT}`)
+  loadAll: async () => {
+    const response = await http.get(`${ENDPOINT}`)
+    return response.data.data
   }
 }

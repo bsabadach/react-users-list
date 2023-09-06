@@ -1,10 +1,16 @@
 import * as React from 'react'
-import { FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ModalProvider } from './common/ui/modal/ModalContext'
 
-import { ModalStoreProvider } from './common/ui/modal'
 
-const AppContext: FC = ({ children }) => (
-  <ModalStoreProvider>{children}</ModalStoreProvider>
+const queryClient = new QueryClient()
+const AppContext: FC<PropsWithChildren> = ({ children }) => (
+  <QueryClientProvider client={queryClient}>
+    <ModalProvider>
+      {children}
+    </ModalProvider>
+  </QueryClientProvider>
 )
 
 export default AppContext

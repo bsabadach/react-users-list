@@ -1,9 +1,19 @@
+
+
 declare module '*.css' {
-  const classes: any
-  export = classes
+  interface IClassNames {
+    [className: string]: string
+  }
+  const classNames: IClassNames;
+  // @ts-ignore
+  export = classNames;
 }
 
 declare module '*.module.css' {
-  const classes: any
-  export = classes
+  interface IClassNames {
+    [className: string]: string
+  }
+  const classNames: IClassNames;
+// @ts-ignore
+  export = classNames;
 }

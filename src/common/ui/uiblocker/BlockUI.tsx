@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 
-import * as styles from './blocker.module.css'
+import styles from './blocker.module.css'
 
-export const BlockUI: FC<{
+export const BlockUI: FC<PropsWithChildren<{
   when: boolean
-}> = ({ when, children }) => {
+}>> = ({ when, children }) => {
   return (
     <>
       {children}

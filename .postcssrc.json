@@ -1,9 +1,5 @@
 {
-  "modules": true,
   "plugins": {
-    "postcss-modules": {
-      "localIndentName": "[local]_[hash:base64:5]",
-      "camelCase": true
-    }
+    "autoprefixer": {}
   }
 }
