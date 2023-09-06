@@ -40,6 +40,7 @@ export const UserCard = ({ user, onSelectUser }: Props) => {
         src={user.picture}
         alt={user.firstName + ' ' + user.lastName}
         onLoad={handleImageLoaded}
+        data-testid="user-image"
       />
 
       <div
