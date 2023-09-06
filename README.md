@@ -1,5 +1,6 @@
 # react-users-list-demo
  a simple list of users application using:
  - react hooks
- - observable remote data for managing requests lifecycle (without Suspense)
+ - use of react-query
  - tailwind css framework
+ - use of testing-library 
