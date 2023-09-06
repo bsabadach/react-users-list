@@ -1,10 +1,9 @@
 import * as React from 'react'
 import cx from 'classnames'
 
-import { SimpleUser } from '..'
-
-import styles from './user.module.css'
 import { useCallback, useState } from 'react'
+import { SimpleUser } from '../model/user'
+import styles from './user.module.css'
 
 type Props = {
   user: SimpleUser

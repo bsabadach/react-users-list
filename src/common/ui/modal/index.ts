@@ -1,1 +1,1 @@
-export * from './OverlayContainer'
+export * from './Overlay'
