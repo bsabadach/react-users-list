@@ -2,7 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "moduleResolution": "node",
-    "target": "es2018",
+    "target": "es2022",
     "sourceMap": true,
     "lib": [
       "esnext",
@@ -20,16 +20,17 @@
     "outDir": "build",
     "noEmitOnError": true,
     "types": ["vite/client","@testing-library/jest-dom"]
-
   },
   "include": [
     "./src/**/*",
     "./typings/global.d.ts",
-    "./jest-setup"
+    "./jest-setup",
+    ".eslintrc.js",
+    "stylelint.config.js"
   ],
   "exclude": [
     "./dist",
     "./build",
-    "./node_modules"
+    "./node_modules",
   ]
 }

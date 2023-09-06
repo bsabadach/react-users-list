@@ -12,5 +12,4 @@ const AppContext: FC<PropsWithChildren> = ({ children }) => (
     </ModalProvider>
   </QueryClientProvider>
 )
-
 export default AppContext
