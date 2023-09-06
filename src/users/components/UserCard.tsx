@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { SimpleUser } from '..'
 
 import styles from './user.module.css'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 type Props = {
   user: SimpleUser
@@ -13,10 +13,6 @@ type Props = {
 
 export const UserCard = ({ user, onSelectUser }: Props) => {
   const [imageLoaded, setImageLoaded] = useState(false)
-
-  useEffect(() => {
-    setImageLoaded(user.id !== '')
-  }, [user.id])
 
   const handleSelectUser = useCallback(() => {
     onSelectUser(user.id)
@@ -36,12 +32,12 @@ export const UserCard = ({ user, onSelectUser }: Props) => {
       className="relative overflow-hidden bg-white rounded-lg shadow-xl hover:shadow-raised transform transition duration-200 hover:-translate-y-2">
       <div
         className={cx(styles.userImagePlaceholder, {
-          [styles.loaded]: imageLoaded || user.id
+          [styles.loaded]: imageLoaded
         })}
       ></div>
       <img
         className={cx('w-full', styles.userImage, {
-          [styles.ready]: imageLoaded || user.id
+          [styles.ready]: imageLoaded
         })}
         src={user.picture}
         alt={user.firstName + ' ' + user.lastName}
