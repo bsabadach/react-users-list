@@ -8,6 +8,8 @@
       "esnext",
       "dom"
     ],
+    "module": "ES2022",
+    "esModuleInterop": true,
     "strict": true,
     "declaration": true,
     "noImplicitAny": true,
