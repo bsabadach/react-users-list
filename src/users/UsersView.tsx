@@ -1,16 +1,15 @@
 import * as React from 'react'
-import { FC, useState } from 'react'
-import { useQuery } from 'react-query'
+import { FC } from 'react'
 import { UsersList } from './components/UsersList'
-import { usersResource } from './resource/usersResource'
 import { UsersModal } from './components/UsersModal'
 import { useModalContext } from '../common/ui/modal/ModalContext'
+import { useUsers } from './model/useUser'
 
 export const UsersView: FC = () => {
   const { open } = useModalContext()
-  const [selectedUserId, setSelectedUserId] = useState('')
+  const { listUsers, selectedUserId, setSelectedUserId } = useUsers()
 
-  const { data: users } = useQuery(['users'], usersResource.loadAll)
+  const { data: users } = listUsers()
 
   const handleSelectUser = (selectedUserId: string) => {
     setSelectedUserId(selectedUserId)
