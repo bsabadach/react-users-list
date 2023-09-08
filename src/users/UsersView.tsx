@@ -9,7 +9,8 @@ import { useModalContext } from '../common/ui/modal/ModalContext'
 export const UsersView: FC = () => {
   const { open } = useModalContext()
   const [selectedUserId, setSelectedUserId] = useState('')
-  const { data: users, isSuccess } = useQuery(['users'], usersResource.loadAll)
+
+  const { data: users } = useQuery(['users'], usersResource.loadAll)
 
   const handleSelectUser = (selectedUserId: string) => {
     setSelectedUserId(selectedUserId)
@@ -17,7 +18,7 @@ export const UsersView: FC = () => {
   }
 
   return <>
-    {isSuccess && <UsersList onSelectUser={handleSelectUser} users={users} />}
+    <UsersList onSelectUser={handleSelectUser} users={users ?? []} />
     <UsersModal selectedUserId={selectedUserId} />
   </>
 }

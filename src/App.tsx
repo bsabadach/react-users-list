@@ -1,7 +1,7 @@
 import React from 'react'
 import { StrictMode } from 'react'
 
-import { UsersView } from './users'
+import { UsersView } from './users/UsersView'
 
 import AppContext from './AppContext'
 import { Header } from './layout/Header'
