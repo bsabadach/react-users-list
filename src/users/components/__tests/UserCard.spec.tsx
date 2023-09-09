@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { fireEvent, render, waitFor } from '@testing-library/react'
+import { fireEvent, render, waitFor} from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { UserCard } from '../UserCard'
 
