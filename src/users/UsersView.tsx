@@ -7,17 +7,17 @@ import { useUsers } from './model/useUser'
 
 export const UsersView: FC = () => {
   const { open } = useModalContext()
-  const { listUsers, selectedUserId, setSelectedUserId } = useUsers()
+  const { listUsers, selectedUserId } = useUsers()
 
   const { data: users } = listUsers()
 
-  const handleSelectUser = (selectedUserId: string) => {
-    setSelectedUserId(selectedUserId)
+  const handleSelectUser = (userId: string) => {
+    selectedUserId.current=userId
     open()
   }
 
   return <>
     <UsersList onSelectUser={handleSelectUser} users={users ?? []} />
-    <UsersModal selectedUserId={selectedUserId} />
+    <UsersModal selectedUserId={selectedUserId.current} />
   </>
 }

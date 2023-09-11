@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { act, renderHook, waitFor } from '@testing-library/react' // Update the path as needed
+import { act, renderHook, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { QueryClient, QueryClientProvider, UseQueryResult } from 'react-query'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import { useUsers } from '../useUser'
 import { FC, PropsWithChildren } from 'react'
 
@@ -26,7 +26,7 @@ describe('useUsers', () => {
   }
 
   beforeAll(() => {
-    queryClient = new QueryClient()
+     queryClient = new QueryClient()
   })
 
   afterEach(() => {
@@ -38,13 +38,12 @@ describe('useUsers', () => {
       wrapper:createWrapper()
     })
 
-    let queryResult : UseQueryResult
     act(() => {
-      queryResult = result.current.listUsers()
+      result.current.listUsers()
     })
 
     await waitFor(() =>
-      expect(queryResult.isSuccess).toBe(true)
+      expect(result.current.listUsers().isSuccess).toBe(true)
     )
 
     expect(result.current.listUsers().data).toEqual(mockUsers)
@@ -54,7 +53,7 @@ describe('useUsers', () => {
     const { result } = renderHook(() => useUsers())
 
     act(() => {
-      result.current.setSelectedUserId('123')
+      result.current.selectedUserId.current='123'
     })
 
     expect(result.current.selectedUserId).toBe('123')

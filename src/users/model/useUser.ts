@@ -1,16 +1,15 @@
 import { useQuery } from 'react-query'
 import { usersResource } from '../resource/usersResource'
-import { useState } from 'react'
+import { useRef } from 'react'
 
 export const useUsers = () => {
-  const [selectedUserId, setSelectedUserId] = useState('')
+  const selectedUserId=useRef('')
   const listUsers = () => {
-    return useQuery(['users'], usersResource.loadAll)
+    return useQuery(['users'], ()=>usersResource.loadAll())
   }
 
   return {
     listUsers,
     selectedUserId,
-    setSelectedUserId
   }
 }

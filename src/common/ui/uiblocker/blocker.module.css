@@ -30,12 +30,10 @@
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-animation: bounce-animation 2s infinite ease-in-out;
   animation: bounce-animation 2s infinite ease-in-out;
 }
 
 .double-bounce2 {
-  -webkit-animation-delay: -1s;
   animation-delay: -1s;
 }
 
@@ -43,11 +41,9 @@
   0%,
   100% {
     transform: scale(0);
-    -webkit-transform: scale(0);
   }
 
   50% {
     transform: scale(1);
-    -webkit-transform: scale(1);
   }
 }
