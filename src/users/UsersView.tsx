@@ -12,7 +12,7 @@ export const UsersView: FC = () => {
   const { data: users } = listUsers()
 
   const handleSelectUser = (userId: string) => {
-    selectedUserId.current=userId
+    selectedUserId.current = userId
     open()
   }
 
