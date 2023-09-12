@@ -22,7 +22,7 @@ export const UserCard = ({ user, onSelectUser }: Props) => {
 
   return <div
     className={cx(
-      'w-full md:w-1/3 lg:w-1/5 flex flex-col mb-8 px-3',
+      'w-full md:w-1/3 lg:w-1/5 flex flex-col px-3',
       styles.userCard
     )}
   >
@@ -38,9 +38,9 @@ export const UserCard = ({ user, onSelectUser }: Props) => {
           [styles.ready]: imageLoaded
         })}
         src={user.picture}
-        alt={user.firstName + ' ' + user.lastName}
+        alt={`${user.firstName} ${user.lastName}`}
         onLoad={handleImageLoaded}
-        data-testid="user-image"
+        data-testid='user-image'
       />
 
       <div
