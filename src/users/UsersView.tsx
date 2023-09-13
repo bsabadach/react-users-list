@@ -2,7 +2,7 @@ import * as React from 'react'
 import { FC } from 'react'
 import { UsersList } from './components/UsersList'
 import { UsersModal } from './components/UsersModal'
-import { useModalContext } from '../common/ui/modal/ModalContext'
+import { useModalContext } from '../common/components/modal/ModalContext'
 import { useUsers } from './model/useUser'
 
 export const UsersView: FC = () => {

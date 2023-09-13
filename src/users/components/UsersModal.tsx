@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { FC } from 'react'
 
-import { Overlay } from '../../common/ui/modal'
+import { Overlay } from '../../common/components/modal'
 import { UsersModalContent } from './UsersModalContent'
 import { useQuery } from 'react-query'
 import { usersResource } from '../resource/usersResource'

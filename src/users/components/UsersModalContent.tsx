@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { format, toDate } from 'date-fns'
 
 import { User } from '../model/user'
-import { BlockUI } from '../../common/ui/uiblocker/BlockUI'
+import { BlockUI } from '../../common/components/uiblocker/BlockUI'
 import { QueryStatus } from 'react-query'
 
 import styles from './user.module.css'

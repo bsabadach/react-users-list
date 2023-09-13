@@ -1,22 +1,13 @@
 import React from 'react'
-import { StrictMode } from 'react'
-
-import { UsersView } from './users/UsersView'
-
 import AppContext from './AppContext'
-import { Header } from './layout/Header'
+import { Layout } from './layout/Layout'
 
 import './app.css'
 
 export const App = () => (
-  <StrictMode>
     <AppContext>
-      <Header />
-      <main>
-        <UsersView />
-      </main>
+      <Layout />
     </AppContext>
-  </StrictMode>
 )
 
 export default App

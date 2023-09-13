@@ -3,9 +3,16 @@
     "tslint-config-prettier"
   ],
   "rules": {
-    "no-any": [true, { "ignore-rest-args": true }],
+    "no-any": [
+      true,
+      {
+        "ignore-rest-args": true
+      }
+    ],
     "max-line-length": {
-      "options": [120]
+      "options": [
+        120
+      ]
     },
     "new-parens": true,
     "no-arg": true,
@@ -14,7 +21,17 @@
     "no-consecutive-blank-lines": false,
     "no-console": {
       "severity": "warning",
-      "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
-    }
+      "options": [
+        "debug",
+        "info",
+        "log",
+        "time",
+        "timeEnd",
+        "trace"
+      ]
+    },
+    "exclude": [
+      "tailwind.config.js"
+    ]
   }
 }

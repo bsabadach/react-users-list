@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 
 
 const mockOpen=jest.fn()
-jest.mock('../../common/ui/modal/ModalContext', () => ({
+jest.mock('../../common/components/modal/ModalContext', () => ({
   useModalContext: () => ({
     open: mockOpen
   }),

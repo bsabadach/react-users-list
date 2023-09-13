@@ -1,4 +1,6 @@
-@import "users/components/user.module.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --color-pink: #ff006e;
