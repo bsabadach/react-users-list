@@ -1,6 +1,7 @@
 # react-users-list-demo
  a simple list of users application using:
  - react hooks
- - use of react-query
+ - react-query
+ - react router (v6)
  - tailwind css framework
- - use of testing-library 
+ - testing-library 
