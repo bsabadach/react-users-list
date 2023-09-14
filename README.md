@@ -4,4 +4,7 @@
  - react-query
  - react router (v6)
  - tailwind css framework
- - testing-library 
+ - testing-library
+
+# preview
+https://master--exquisite-cendol-207eb6.netlify.app/#/users
