@@ -5,6 +5,6 @@ import { useAuthContext } from '../../../auth/AuthProvider'
 
 const GuardedRoute: FC<PropsWithChildren> = ({ children }) => {
   const { isAuth } = useAuthContext()
-  return isAuth ? children : <Navigate to='/login' />
+  return isAuth ? children : <Navigate to='/' />
 }
 export default GuardedRoute

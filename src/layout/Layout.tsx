@@ -1,16 +1,22 @@
 import * as React from 'react'
 
 import cx from 'classnames'
-import styles from './header.module.css'
+import styles from './layout.module.css'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../auth/AuthProvider'
 
+type ActionType = 'login' | 'logout'
 export const Layout = () => {
-  const { logout, isAuth } = useAuthContext()
+  const { logout, login, isAuth } = useAuthContext()
   const navigate = useNavigate()
-  const handleLogoutClicked = () => {
-    logout()
-    navigate('/login')
+  const handleButtonClicked = (name: ActionType) => () => {
+    if (name === 'logout') {
+      logout()
+      navigate('/')
+      return
+    }
+    login()
+    navigate('/users')
   }
 
   return (
@@ -24,14 +30,24 @@ export const Layout = () => {
         <div className='container mx-auto '>
           <div className='flex flex-row justify-between items-center'>
             <h1 className={styles.title}>USERS LIST APPLICATION</h1>
-            {isAuth && <button className='h-full w-1/4 px-8 text-xl border shadow'>
-              <span onClick={handleLogoutClicked}>Logout</span>
+            {!isAuth &&
+              <button onClick={handleButtonClicked('login')}
+                                className='h-full w-1/4 px-8 text-xl border shadow'>
+              <span className={styles.authAction}>Login</span>
             </button>}
+            {isAuth &&
+              <button onClick={handleButtonClicked('logout')}
+                      className='h-full w-1/4 px-8 text-xl border shadow'>
+                <span className={styles.authAction}>Logout</span>
+              </button>}
           </div>
         </div>
       </nav>
       <main>
         <Outlet />
+        {!isAuth && <div className='container mx-auto py-8 rounded shadow'>
+          <h1 className='w-full text-center text-2xl'>User list demo application with fake authentication</h1>
+        </div>}
       </main>
     </>
   )
