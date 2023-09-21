@@ -5,10 +5,8 @@ import { ModalProvider } from './common/components/modal/ModalContext'
 
 const queryClient = new QueryClient()
 const AppContext: FC<PropsWithChildren> = ({ children }) => (
-    <QueryClientProvider client={queryClient}>
-      <ModalProvider>
-        {children}
-      </ModalProvider>
-    </QueryClientProvider>
+  <QueryClientProvider client={queryClient}>
+    <ModalProvider>{children}</ModalProvider>
+  </QueryClientProvider>
 )
 export default AppContext

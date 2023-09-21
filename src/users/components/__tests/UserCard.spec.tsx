@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { fireEvent, render, waitFor} from '@testing-library/react'
+import { fireEvent, render, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { UserCard } from '../UserCard'
 
@@ -15,7 +15,6 @@ const user = {
 describe('UserCard component', () => {
   const onSelectUser = jest.fn()
   it('renders user details', () => {
-
     const { getByText, getByAltText } = render(
       <UserCard user={user} onSelectUser={onSelectUser} />
     )

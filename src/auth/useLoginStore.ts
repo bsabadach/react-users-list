@@ -1,6 +1,9 @@
 import { useState } from 'react'
 
-export const makeStore = (isAuth = false, setAuthState = (_: boolean) => {}) => {
+export const makeStore = (
+  isAuth = false,
+  setAuthState = (_: boolean) => {}
+) => {
   const login = () => {
     setAuthState(true)
   }
@@ -11,7 +14,7 @@ export const makeStore = (isAuth = false, setAuthState = (_: boolean) => {}) => 
   return {
     logout,
     login,
-     isAuth
+    isAuth
   }
 }
 export const useLoginStore = () => {

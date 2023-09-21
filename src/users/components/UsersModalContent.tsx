@@ -16,12 +16,12 @@ const formatDate = (input: string | undefined) => {
 
 type Props = {
   user: User | undefined
-  fetchStatus:QueryStatus
+  fetchStatus: QueryStatus
 }
 
 export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
-  <div className={cx('relative p-4',styles.userModalWrapper)}>
-    <BlockUI when={fetchStatus==='loading'}>
+  <div className={cx('relative p-4', styles.userModalWrapper)}>
+    <BlockUI when={fetchStatus === 'loading'}>
       <div>
         <div className="overflow-hidden flex flex-row mb-4">
           <div className="w-1/3">

@@ -1,16 +1,22 @@
-import React, { createContext, FC, PropsWithChildren, useContext, useState } from 'react'
+import React, {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useContext,
+  useState
+} from 'react'
 
 const TAILWIND_OVERFLOW_Y_CLASS = 'overflow-y-hidden'
 export const MODAL_CONTENT_ID = 'modal-content'
 
 const ModalContext = createContext({
-  open: () => {
-  }, close: () => {
-  }, isOpened: false
+  open: () => {},
+  close: () => {},
+  isOpened: false
 })
 export const useModalContext = () => useContext(ModalContext)
 
-export const ModalProvider: FC<PropsWithChildren>=({ children }) => {
+export const ModalProvider: FC<PropsWithChildren> = ({ children }) => {
   const [isOpened, setIsOpened] = useState(false)
   const restoreDocument = () => {
     document.removeEventListener('click', handleDocumentClick)
@@ -23,7 +29,6 @@ export const ModalProvider: FC<PropsWithChildren>=({ children }) => {
     close()
   }
 
-
   const open = () => {
     document.body.classList.add(TAILWIND_OVERFLOW_Y_CLASS)
     document.addEventListener('click', handleDocumentClick)
@@ -35,11 +40,9 @@ export const ModalProvider: FC<PropsWithChildren>=({ children }) => {
     setIsOpened(false)
   }
 
-
-  return <ModalContext.Provider value={{ open, close, isOpened }}>
-    {children}
-  </ModalContext.Provider>
+  return (
+    <ModalContext.Provider value={{ open, close, isOpened }}>
+      {children}
+    </ModalContext.Provider>
+  )
 }
-
-
-

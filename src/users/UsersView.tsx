@@ -16,8 +16,10 @@ export const UsersView: FC = () => {
     open()
   }
 
-  return <>
-    <UsersList onSelectUser={handleSelectUser} users={users ?? []} />
-    <UsersModal selectedUserId={selectedUserId.current} />
-  </>
+  return (
+    <>
+      <UsersList onSelectUser={handleSelectUser} users={users ?? []} />
+      <UsersModal selectedUserId={selectedUserId.current} />
+    </>
+  )
 }

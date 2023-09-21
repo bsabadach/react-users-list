@@ -6,94 +6,66 @@ It represents the closest reasonable ESLint configuration to this
 project's original TSLint configuration.
 
 We recommend eventually switching this configuration to extend from
-the recommended rulesets in typescript-eslint. 
+the recommended rulesets in typescript-eslint.
 https://github.com/typescript-eslint/tslint-to-eslint-config/blob/master/docs/FAQs.md
 
 Happy linting! 💖
 */
 module.exports = {
-  'env': {
-    'browser': true,
-    'es6': true,
-    'node': true
+  env: {
+    browser: true,
+    es6: true,
+    node: true
   },
-  'parser': '@typescript-eslint/parser',
-  'parserOptions': {
-    'project': 'tsconfig.json',
-    'sourceType': 'module'
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: 'tsconfig.json',
+    sourceType: 'module'
   },
-  'plugins': [
+  plugins: [
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
     '@typescript-eslint'
   ],
-  'root': true,
-  'rules': {
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  root: true,
+  rules: {
     '@typescript-eslint/indent': 'off',
     '@typescript-eslint/member-delimiter-style': [
       'off',
       {
-        'multiline': {
-          'delimiter': 'none',
-          'requireLast': true
+        multiline: {
+          delimiter: 'none',
+          requireLast: true
         },
-        'singleline': {
-          'delimiter': 'semi',
-          'requireLast': false
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false
         }
       }
     ],
-    '@typescript-eslint/no-explicit-any': 'error',
-    '@typescript-eslint/quotes': 'off',
-    '@typescript-eslint/semi': [
-      'off',
-      null
-    ],
-    '@typescript-eslint/type-annotation-spacing': 'off',
-    'arrow-parens': [
-      'off',
-      'always'
-    ],
-    'brace-style': [
-      'off',
-      'off'
-    ],
-    'comma-dangle': 'off',
-    'eol-last': 'off',
-    'indent': 'off',
-    'linebreak-style': 'off',
-    'max-len': [
-      'error',
+    quotes: 'off',
+    semi: 'off',
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error", // or "error"
       {
-        'code': 120
+        "argsIgnorePattern": "_",
+        "varsIgnorePattern": "_",
+        "caughtErrorsIgnorePattern": "_"
       }
     ],
-    'new-parens': 'error',
-    'newline-per-chained-call': 'off',
-    'no-bitwise': 'error',
-    'no-caller': 'error',
-    'no-cond-assign': 'error',
-    'no-extra-semi': 'off',
-    'no-irregular-whitespace': 'off',
-    'no-multiple-empty-lines': 'off',
-    'no-trailing-spaces': 'off',
-    'quote-props': 'off',
-    'quotes': 'off',
     'react/jsx-curly-spacing': 'off',
     'react/jsx-equals-spacing': 'off',
     'react/jsx-tag-spacing': [
       'off',
       {
-        'afterOpening': 'allow',
-        'closingSlash': 'allow'
+        afterOpening: 'allow',
+        closingSlash: 'allow'
       }
     ],
     'react/jsx-wrap-multilines': 'off',
-    'semi': 'off',
     'space-before-function-paren': 'off',
-    'space-in-parens': [
-      'off',
-      'never'
-    ]
+    'space-in-parens': ['off', 'never']
   }
 }

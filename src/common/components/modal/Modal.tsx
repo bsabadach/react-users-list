@@ -5,23 +5,28 @@ import cx from 'classnames'
 
 import styles from './modal.module.css'
 
-export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({ children, close }) => {
-  return <div
-    className={cx(
-      'bg-white rounded shadow max-w-full max-h-full p-4',
-      styles.modalWrapper
-    )}
-  >
-    <div className='flex flex-col'>
-      <div className='flex flex-col items-end'>
-        <button onClick={close} className='w-8'>
-          <i
-            data-fa-symbol='delete'
-            className='fas fa-times fa-fw text-gray-500'
-          />
-        </button>
+export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
+  children,
+  close
+}) => {
+  return (
+    <div
+      className={cx(
+        'bg-white rounded shadow max-w-full max-h-full p-4',
+        styles.modalWrapper
+      )}
+    >
+      <div className="flex flex-col">
+        <div className="flex flex-col items-end">
+          <button onClick={close} className="w-8">
+            <i
+              data-fa-symbol="delete"
+              className="fas fa-times fa-fw text-gray-500"
+            />
+          </button>
+        </div>
       </div>
+      <div className={styles.modalWrapper}>{children}</div>
     </div>
-    <div className={styles.modalWrapper}>{children}</div>
-  </div>
+  )
 }

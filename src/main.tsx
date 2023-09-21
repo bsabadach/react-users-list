@@ -10,14 +10,16 @@ const router = createHashRouter([
   {
     path: '/',
     element: <App />,
-    children: [{
-      path: '/users',
-      element: (
-        <GuardedRoute>
-          <UsersView />
-        </GuardedRoute>
-      )
-    }]
+    children: [
+      {
+        path: '/users',
+        element: (
+          <GuardedRoute>
+            <UsersView />
+          </GuardedRoute>
+        )
+      }
+    ]
   }
 ])
 

@@ -5,8 +5,10 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { useUsers } from '../useUser'
 import { FC, PropsWithChildren } from 'react'
 
-
-const mockUsers = [{ id: '1', name: 'User 1' }, { id: '2', name: 'User 2' }]
+const mockUsers = [
+  { id: '1', name: 'User 1' },
+  { id: '2', name: 'User 2' }
+]
 
 jest.mock('../../resource/usersResource', () => ({
   usersResource: {
@@ -15,18 +17,17 @@ jest.mock('../../resource/usersResource', () => ({
 }))
 
 describe('useUsers', () => {
-
   let queryClient: QueryClient
 
-  const createWrapper=()=>{
-    const Wrapper:FC<PropsWithChildren>= ({ children }) => (
+  const createWrapper = () => {
+    const Wrapper: FC<PropsWithChildren> = ({ children }) => (
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     )
     return Wrapper
   }
 
   beforeAll(() => {
-     queryClient = new QueryClient()
+    queryClient = new QueryClient()
   })
 
   afterEach(() => {
@@ -35,16 +36,14 @@ describe('useUsers', () => {
 
   it('should list users using useQuery', async () => {
     const { result } = renderHook(() => useUsers(), {
-      wrapper:createWrapper()
+      wrapper: createWrapper()
     })
 
     act(() => {
       result.current.listUsers()
     })
 
-    await waitFor(() =>
-      expect(result.current.listUsers().isSuccess).toBe(true)
-    )
+    await waitFor(() => expect(result.current.listUsers().isSuccess).toBe(true))
 
     expect(result.current.listUsers().data).toEqual(mockUsers)
   })
@@ -53,7 +52,7 @@ describe('useUsers', () => {
     const { result } = renderHook(() => useUsers())
 
     act(() => {
-      result.current.selectedUserId.current='123'
+      result.current.selectedUserId.current = '123'
     })
 
     expect(result.current.selectedUserId).toBe('123')
