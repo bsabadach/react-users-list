@@ -26,7 +26,6 @@
     "./jest-setup.ts",
     "./jest.config.ts",
     "./.eslintrc.js",
-    "./stylelint.config.js",
     "./vite.config.ts",
     "./tailwind.config.js"
   ],
