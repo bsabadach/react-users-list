@@ -30,42 +30,14 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   root: true,
   rules: {
-    '@typescript-eslint/indent': 'off',
-    '@typescript-eslint/member-delimiter-style': [
-      'off',
-      {
-        multiline: {
-          delimiter: 'none',
-          requireLast: true
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false
-        }
-      }
-    ],
-    quotes: 'off',
-    semi: 'off',
     "no-unused-vars": "off",
     "@typescript-eslint/no-unused-vars": [
-      "error", // or "error"
+      "error",
       {
         "argsIgnorePattern": "_",
         "varsIgnorePattern": "_",
         "caughtErrorsIgnorePattern": "_"
       }
-    ],
-    'react/jsx-curly-spacing': 'off',
-    'react/jsx-equals-spacing': 'off',
-    'react/jsx-tag-spacing': [
-      'off',
-      {
-        afterOpening: 'allow',
-        closingSlash: 'allow'
-      }
-    ],
-    'react/jsx-wrap-multilines': 'off',
-    'space-before-function-paren': 'off',
-    'space-in-parens': ['off', 'never']
+    ]
   }
 }
