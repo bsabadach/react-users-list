@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
-import App from './App'
 import { UsersView } from './users/UsersView'
+import NotFound from './common/components/404/NotFound'
+import App from './App'
+
 import GuardedRoute from './common/components/guarded-route/GuardedRoute'
 import { AuthProvider } from './auth/AuthProvider'
 
@@ -16,6 +18,14 @@ const router = createHashRouter([
         element: (
           <GuardedRoute>
             <UsersView />
+          </GuardedRoute>
+        )
+      },
+      {
+        path: '*',
+        element: (
+          <GuardedRoute>
+            <NotFound />
           </GuardedRoute>
         )
       }
