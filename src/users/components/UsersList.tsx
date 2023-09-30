@@ -18,8 +18,8 @@ export const UsersList = ({ users, onSelectUser }: Props) => {
       className={cx('m-auto container bg-white relative', styles.usersList)}
     >
       <div className="flex flex-wrap items-center justify-center gap-6">
-        {users.map((user, index) => (
-          <UserCard user={user} onSelectUser={onSelectUser} key={index} />
+        {users.map(user => (
+          <UserCard user={user} onSelectUser={onSelectUser} key={user.id} />
         ))}
       </div>
     </section>

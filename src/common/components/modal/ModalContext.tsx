@@ -3,6 +3,7 @@ import React, {
   FC,
   PropsWithChildren,
   useContext,
+  useMemo,
   useState
 } from 'react'
 
@@ -39,9 +40,10 @@ export const ModalProvider: FC<PropsWithChildren> = ({ children }) => {
     restoreDocument()
     setIsOpened(false)
   }
+  const contextValue = useMemo(() => ({ open, close, isOpened }), [isOpened])
 
   return (
-    <ModalContext.Provider value={{ open, close, isOpened }}>
+    <ModalContext.Provider value={contextValue}>
       {children}
     </ModalContext.Provider>
   )
