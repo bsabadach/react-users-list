@@ -4,7 +4,10 @@
     "moduleResolution": "node",
     "target": "es2022",
     "sourceMap": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "module": "ES2022",
     "esModuleInterop": true,
     "strict": true,
@@ -18,16 +21,23 @@
     "noUnusedParameters": true,
     "outDir": "build",
     "noEmitOnError": true,
-    "types": ["vite/client", "@testing-library/jest-dom"]
+    "types": [
+      "vite/client",
+      "@testing-library/jest-dom"
+    ]
   },
   "include": [
     "./src/**/*",
-    "./typings/global.d.ts",
+    "./typings/global.d.ts"
+  ],
+  "exclude": [
+    "./dist",
+    "./build",
+    "./node_modules",
     "./jest-setup.ts",
     "./jest.config.ts",
     "./.eslintrc.js",
     "./vite.config.ts",
     "./tailwind.config.js"
-  ],
-  "exclude": ["./dist", "./build", "./node_modules"]
+  ]
 }
