@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import cx from 'classnames'
 import { SimpleUser } from '../model/user'
 import styles from './user.module.css'
@@ -9,7 +9,7 @@ interface Props {
   onSelectUser: (selectedUserId: string) => void
 }
 
-export const UserCard = ({ user, onSelectUser }: Props) => {
+const UserCard = ({ user, onSelectUser }: Props) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const handleSelectUser = useCallback(() => {
@@ -70,3 +70,5 @@ export const UserCard = ({ user, onSelectUser }: Props) => {
     </div>
   )
 }
+
+export default memo(UserCard)
