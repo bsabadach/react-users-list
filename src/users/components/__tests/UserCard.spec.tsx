@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { UserCard } from '../UserCard'
+import UserCard from '../UserCard'
 
 const user = {
   id: '1',
