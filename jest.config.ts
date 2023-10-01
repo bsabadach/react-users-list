@@ -3,8 +3,8 @@ export default {
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy'
   },
-  collectCoverageFrom: ['<rootDir>/**/*.{ts, tsx}'],
-  roots: ['<rootDir>'],
+  collectCoverageFrom: ['<rootDir>src/**/*.{ts, tsx}'],
+  roots: ['<rootDir>/src'],
   testRegex: '(/__tests/.*|(\\.|/)(test|spec))\\.(ts|tsx)$',
   testEnvironment: 'jsdom',
   transform: {
