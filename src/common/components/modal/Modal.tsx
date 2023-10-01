@@ -15,6 +15,7 @@ export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
         'bg-white rounded shadow max-w-full max-h-full p-4',
         styles.modalWrapper
       )}
+      data-testid="modal-wrapper"
     >
       <div className="flex flex-col">
         <div className="flex flex-col items-end">

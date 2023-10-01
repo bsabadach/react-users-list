@@ -32,10 +32,13 @@ export const Layout = () => {
             <h1 className={styles.title}>USERS LIST APPLICATION</h1>
             {!isAuth && (
               <button
+                data-testid="login-button"
                 onClick={handleButtonClicked('login')}
                 className="h-full w-1/4 px-8 text-xl border shadow"
               >
-                <span className={styles.authAction}>Login</span>
+                <span className={styles.authAction} data-testid="login-text">
+                  Login
+                </span>
               </button>
             )}
             {isAuth && (
@@ -43,7 +46,9 @@ export const Layout = () => {
                 onClick={handleButtonClicked('logout')}
                 className="h-full w-1/4 px-8 text-xl border shadow"
               >
-                <span className={styles.authAction}>Logout</span>
+                <span className={styles.authAction} data-testid="logout-text">
+                  Logout
+                </span>
               </button>
             )}
           </div>
