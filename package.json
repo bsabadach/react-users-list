@@ -9,6 +9,7 @@
     "build": "tsc && vite build",
     "build:ci": "pnpm run lint && pnpm run test:ci && pnpm run build",
     "serve": "vite preview",
+    "lint:staged": "eslint && prettier  --write",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --fix --ignore-path ./.gitignore",
     "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint": "pnpm run lint:format && pnpm run lint:fix ",

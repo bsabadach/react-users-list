@@ -1,3 +1,3 @@
 {
-  "*.ts(x)": ["pnpm run lint"]
+  "*.{js,jsx,ts,tsx,css}": ["pnpm run lint:staged"]
 }
