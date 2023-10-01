@@ -1,5 +1,3 @@
 {
-  "*.ts(x)": [
-    "pnpm run lint"
-  ]
+  "*.ts(x)": ["pnpm run lint"]
 }

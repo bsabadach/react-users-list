@@ -6,7 +6,7 @@ import './app.css'
 
 export const App = () => (
   <AppContext>
-    <Layout />
+    <Layout >
   </AppContext>
 )
 
