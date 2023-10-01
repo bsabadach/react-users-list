@@ -4,7 +4,7 @@ import { Layout } from './layout/Layout'
 
 import './app.css'
 
-export const App = (): JSX.Element => (
+export const App = () => (
   <AppContext>
     <Layout />
   </AppContext>
