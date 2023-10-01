@@ -15,7 +15,7 @@
     "lint": "pnpm run lint:format && pnpm run lint:fix ",
     "type-check": "tsc",
     "test": "jest",
-    "test:ci": "jest && && pnpm exec playwright install && npx playwright test"
+    "test:ci": "jest && pnpm exec playwright install && npx playwright test"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
