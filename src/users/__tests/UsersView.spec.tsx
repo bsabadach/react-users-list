@@ -21,7 +21,7 @@ const mockUsers = [
   // Add more mock users as needed
 ]
 
-jest.mock('react-query', () => ({
+jest.mock('@tanstack/react-query', () => ({
   useQuery: jest.fn(() => ({
     data: mockUsers,
     isSuccess: true

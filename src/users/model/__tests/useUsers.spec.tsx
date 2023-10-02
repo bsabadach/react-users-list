@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { act, renderHook, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useUsers } from '../useUser'
 import { FC, PropsWithChildren } from 'react'
 
