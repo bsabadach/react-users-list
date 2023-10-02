@@ -68,8 +68,8 @@ devDependencies:
     specifier: ^18.18.1
     version: 18.18.1
   '@types/react-test-renderer':
-    specifier: 16.9.8
-    version: 16.9.8
+    specifier: 18.0.3
+    version: 18.0.3
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.7.3
     version: 6.7.3(@typescript-eslint/parser@6.7.3)(eslint@8.50.0)(typescript@5.2.2)
@@ -1371,18 +1371,10 @@ packages:
     dependencies:
       '@types/react': 18.2.24
 
-  /@types/react-test-renderer@16.9.8:
-    resolution: {integrity: sha512-5zmgK3rWLQLX8VwcK94KqCnXTmirDFgsJOElNbnvNJ7v6QIg3SBqZgH/b5Z5VVQVCTiXc4ZzETF4H0yq3VwHCQ==}
+  /@types/react-test-renderer@18.0.3:
+    resolution: {integrity: sha512-4wcNLnY6nIT+L6g94CpzL4CXX2P18JvKPU9CDlaHr3DnbP3GiaQLhDotJqjWlVqOcE4UhLRjp0MtxqwuNKONnA==}
     dependencies:
-      '@types/react': 16.14.48
-    dev: true
-
-  /@types/react@16.14.48:
-    resolution: {integrity: sha512-7HP7K9IyuP6CpxEHmfRPEl21pwra+nSgZHXhyq7WOkxhIGYtSpIHJBijh4zuScgelrPxsUXVPDRkSKHhT+6nkg==}
-    dependencies:
-      '@types/prop-types': 15.7.8
-      '@types/scheduler': 0.16.4
-      csstype: 3.1.2
+      '@types/react': 18.2.24
     dev: true
 
   /@types/react@18.2.24:
