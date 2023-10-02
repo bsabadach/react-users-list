@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test'
-import mockUsersResponse from './fixtures/mockUsersResponse'
-// @ts-ignore
-import mockUserResponse from './fixtures/mockUserResponse'
+import mockUsersResponse from './fixtures/mockUsersResponse.json'
+import mockUserResponse from './fixtures/mockUserResponse.json'
 
 test.beforeEach(async ({ page }) => {
   await page.route('https://dummyapi.io/data/v1/user', route =>
