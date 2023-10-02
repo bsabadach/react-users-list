@@ -7,7 +7,7 @@
     "prepare": "husky install",
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:ci": "pnpm run lint && pnpm run test:ci && pnpm run build",
+    "build:ci": "pnpm run lint && pnpm run test:unit && pnpm run test:integration && pnpm run build",
     "serve": "vite preview",
     "lint:staged": "eslint && prettier  --write",
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --fix --ignore-path ./.gitignore",
