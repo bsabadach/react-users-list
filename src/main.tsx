@@ -2,11 +2,9 @@ import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import { UsersView } from './users/UsersView'
-import NotFound from './common/components/404/NotFound'
 import App from './App'
-
+import NotFound from './common/components/404/NotFound'
 import GuardedRoute from './common/components/guarded-route/GuardedRoute'
-import { AuthProvider } from './auth/AuthProvider'
 
 const router = createHashRouter([
   {
@@ -37,8 +35,6 @@ const container = document.querySelector('#root')
 const root = createRoot(container!)
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
