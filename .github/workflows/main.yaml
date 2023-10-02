@@ -35,7 +35,5 @@ jobs:
       - name: Run integration tests
         run: pnpm run test:integration
 
-      - name: SonarCloud Analysis
-        run: |
-          npm install -g sonarqube-scanner
-          sonar-scanner -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - name: Run build
+        run: pnpm run build
