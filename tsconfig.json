@@ -30,16 +30,17 @@
   },
   "include": [
     "./src/**/*",
-    "./typings/global.d.ts"
+    "./typings/global.d.ts",
+    "./jest-setup.ts",
+    "./jest.config.ts",
+    "./.eslintrc.js",
+    "./vite.config.ts",
+    "./tailwind.config.js",
+    "./playwright.config.ts",
   ],
   "exclude": [
     "./dist",
     "./build",
     "./node_modules",
-    "./jest-setup.ts",
-    "./jest.config.ts",
-    "./.eslintrc.js",
-    "./vite.config.ts",
-    "./tailwind.config.js"
   ]
 }
