@@ -149,8 +149,8 @@ devDependencies:
     specifier: ^13.13.1
     version: 13.13.1
   stylelint-config-standard:
-    specifier: ^19.0.0
-    version: 19.0.0(stylelint@13.13.1)
+    specifier: ^34.0.0
+    version: 34.0.0(stylelint@13.13.1)
   tailwindcss:
     specifier: ^3.3.3
     version: 3.3.3(ts-node@10.9.1)
@@ -6448,21 +6448,23 @@ packages:
     resolution: {integrity: sha512-Dj1Okke1C3uKKwQcetra4jSuk0DqbzbYtXipzFlFMZtowbF1x7BKJwB9AayVMyFARvU8EDrZdcax4At/452cAg==}
     dev: true
 
-  /stylelint-config-recommended@3.0.0(stylelint@13.13.1):
-    resolution: {integrity: sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==}
+  /stylelint-config-recommended@13.0.0(stylelint@13.13.1):
+    resolution: {integrity: sha512-EH+yRj6h3GAe/fRiyaoO2F9l9Tgg50AOFhaszyfov9v6ayXJ1IkSHwTxd7lB48FmOeSGDPLjatjO11fJpmarkQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: '>=10.1.0'
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 13.13.1
     dev: true
 
-  /stylelint-config-standard@19.0.0(stylelint@13.13.1):
-    resolution: {integrity: sha512-VvcODsL1PryzpYteWZo2YaA5vU/pWfjqBpOvmeA8iB2MteZ/ZhI1O4hnrWMidsS4vmEJpKtjdhLdfGJmmZm6Cg==}
+  /stylelint-config-standard@34.0.0(stylelint@13.13.1):
+    resolution: {integrity: sha512-u0VSZnVyW9VSryBG2LSO+OQTjN7zF9XJaAJRX/4EwkmU0R2jYwmBSN10acqZisDitS0CLiEiGjX7+Hrq8TAhfQ==}
+    engines: {node: ^14.13.1 || >=16.0.0}
     peerDependencies:
-      stylelint: '>=10.1.0'
+      stylelint: ^15.10.0
     dependencies:
       stylelint: 13.13.1
-      stylelint-config-recommended: 3.0.0(stylelint@13.13.1)
+      stylelint-config-recommended: 13.0.0(stylelint@13.13.1)
     dev: true
 
   /stylelint@13.13.1:
