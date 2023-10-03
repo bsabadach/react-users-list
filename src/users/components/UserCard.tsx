@@ -60,10 +60,11 @@ const UserCard = ({ user, onSelectUser }: Props) => {
           </p>
           <button
             onClick={handleSelectUser}
-            className="text-gray-500 w-full text-right"
+            className="text-gray-500 w-full text-right text-sm"
             data-testid={`select-user-${user?.id}`}
           >
             <i className="fas fa-eye fa-fw" />
+            see more...
           </button>
         </div>
       </div>
