@@ -20,10 +20,7 @@ export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
       <div className="flex flex-col">
         <div className="flex flex-col items-end">
           <button onClick={close} className="w-8">
-            <i
-              data-fa-symbol="delete"
-              className="fas fa-times fa-fw text-gray-500"
-            />
+            X
           </button>
         </div>
       </div>
