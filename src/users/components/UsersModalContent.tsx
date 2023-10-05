@@ -20,7 +20,10 @@ type Props = {
 }
 
 export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
-  <div className={cx('relative p-4', styles.userModalWrapper)}>
+  <div
+    className={cx('relative p-4', styles.userModalWrapper)}
+    data-testid="user-modal"
+  >
     <BlockUI when={fetchStatus === 'loading'}>
       <div>
         <div className="overflow-hidden flex flex-row mb-4">
