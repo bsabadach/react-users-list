@@ -7,7 +7,7 @@ a simple list of users application using:
 - react router (v6)
 - tailwind css framework
 - testing-library
-- integartion test on playwright
+- integration test on playwright
 - cd on netflix
 - quality on sonarcloud
 
