@@ -8,7 +8,7 @@ a simple list of users application using:
 - tailwind css framework
 - testing-library
 - integration test on playwright
-- cd on netflix
+- ci/cd on netflix
 - quality on sonarcloud
 
 # preview
