@@ -5,17 +5,19 @@ import { useRef } from 'react'
 export const useUsers = () => {
   const selectedUserId = useRef('')
 
-  const loadById = (selectedUserId: string) => {
+  const useLoadById = (selectedUserId: string) => {
     return useQuery(['user', selectedUserId], () =>
-      usersResource.load(selectedUserId)
+      usersResource.load(selectedUserId),
     )
   }
 
-  const usersResult = useQuery(['users'], () => usersResource.loadAll())
+  const useLoadAll = () => {
+    return useQuery(['users'], () => usersResource.loadAll())
+  }
 
   return {
-    usersResult,
-    loadById,
-    selectedUserId
+    useLoadAll,
+    useLoadById,
+    selectedUserId,
   }
 }

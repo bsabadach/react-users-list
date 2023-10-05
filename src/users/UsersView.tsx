@@ -8,9 +8,9 @@ import { BlockUI } from '../common/components/uiblocker/BlockUI'
 
 export const UsersView: FC = () => {
   const { open } = useModalContext()
-  const { usersResult, selectedUserId } = useUsers()
+  const { useLoadAll, selectedUserId } = useUsers()
 
-  const { data: users, isLoading } = usersResult
+  const { data: users, isLoading } = useLoadAll()
 
   const handleSelectUser = (userId: string) => {
     selectedUserId.current = userId
