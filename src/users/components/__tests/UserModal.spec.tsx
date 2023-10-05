@@ -9,15 +9,15 @@ import mockUser from './../../../../integration/fixtures/mockUserResponse.json'
 
 jest.mock('../../model/useUser', () => ({
   useUsers: () => ({
-    loadById: jest.fn(() => ({ data: mockUser, status: 'success' }))
-  })
+    useLoadById: jest.fn(() => ({ data: mockUser, status: 'success' })),
+  }),
 }))
 
 jest.mock('../../../common/components/modal/ModalContext', () => ({
   useModalContext: () => ({
     isOpened: true,
-    close: () => {}
-  })
+    close: () => {},
+  }),
 }))
 
 describe('UserCard modal', () => {

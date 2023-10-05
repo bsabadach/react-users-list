@@ -10,8 +10,8 @@ type Props = {
 }
 
 export const UsersModal: FC<Props> = ({ selectedUserId }) => {
-  const { loadById } = useUsers()
-  const { data: user, status } = loadById(selectedUserId)
+  const { useLoadById } = useUsers()
+  const { data: user, status } = useLoadById(selectedUserId)
   return (
     <Overlay>
       <UsersModalContent fetchStatus={status} user={user} />
