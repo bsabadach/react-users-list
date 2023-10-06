@@ -61,12 +61,14 @@ export const Layout = () => {
             <h1 className="w-full text-center text-2xl">
               User list demo application with fake authentication
             </h1>
-            <a
-              href="https://master--prismatic-tarsier-d6698c.netlify.app/"
-              target="_blank"
-            >
-              see storybook
-            </a>
+            <div className="w-full text-center text-blue-600">
+              <a
+                href="https://master--prismatic-tarsier-d6698c.netlify.app/"
+                target="_blank"
+              >
+                see storybook &gt;&gt;
+              </a>
+            </div>
           </div>
         )}
       </main>
