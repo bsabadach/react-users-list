@@ -1,15 +1,12 @@
 import * as React from 'react'
-import { FC, PropsWithChildren } from 'react'
 
 import { act, render, renderHook, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import {
-  QueryClient,
-  QueryClientProvider,
-  QueryObserverResult,
-} from '@tanstack/react-query'
+import { QueryObserverResult } from '@tanstack/react-query'
+
 import { useUsers } from '../useUser'
 import { User } from '../user'
+import makeWithQueryClient from './utils/WithQueryClient'
 
 const mockUsers = [
   { id: '1', name: 'User 1' },
@@ -19,38 +16,52 @@ const mockUsers = [
 jest.mock('../../resource/usersResource', () => ({
   usersResource: {
     loadAll: jest.fn(() => Promise.resolve(mockUsers)),
+    load: jest.fn((id: string) =>
+      Promise.resolve(mockUsers.at(parseInt(id) - 1)),
+    ),
   },
 }))
 
 describe('useUsers', () => {
-  let queryClient: QueryClient
+  const WrapperWithQueryClient = makeWithQueryClient()
 
-  const WrapperWithQueryClient: FC<PropsWithChildren> = ({ children }) => {
-    return (
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    )
-  }
+  it('useLoadById should load user useQuery', async () => {
+    let userFetchResult = {} as unknown as QueryObserverResult<User[], User[]>
+    const { result } = renderHook(() => useUsers())
+    const Actor = () => {
+      userFetchResult = result.current.useLoadById(
+        '1',
+      ) as unknown as QueryObserverResult<User[], User[]>
+      return <div></div>
+    }
 
-  beforeAll(() => {
-    queryClient = new QueryClient()
+    act(() => {
+      render(
+        <WrapperWithQueryClient>
+          <Actor />
+        </WrapperWithQueryClient>,
+      )
+    })
+
+    await waitFor(() => {
+      expect(userFetchResult.isSuccess).toBe(true)
+      expect(userFetchResult.data).toEqual(mockUsers.at(0))
+    })
   })
 
-  afterEach(() => {
-    queryClient.clear()
-  })
-
-  it('should list users using useQuery', async () => {
+  it('useLoadAll should list users using useQuery', async () => {
     const { result } = renderHook(() => useUsers())
 
-    let userResult = {
+    let usersListResult = {
       data: [],
       isSuccess: false,
     } as unknown as QueryObserverResult<User[], User[]>
     const Actor = () => {
-      userResult = result.current.useLoadAll() as QueryObserverResult<
-        User[],
-        User[]
-      >
+      usersListResult =
+        result.current.useLoadAll() as unknown as QueryObserverResult<
+          User[],
+          User[]
+        >
       return null
     }
 
@@ -63,18 +74,8 @@ describe('useUsers', () => {
     })
 
     await waitFor(() => {
-      expect(userResult.isSuccess).toBe(true)
-      expect(userResult.data).toEqual(mockUsers)
+      expect(usersListResult.isSuccess).toBe(true)
+      expect(usersListResult.data).toEqual(mockUsers)
     })
-  })
-
-  it('should set selectedUserId using setSelectedUserId', () => {
-    const { result } = renderHook(() => useUsers())
-
-    act(() => {
-      result.current.selectedUserId.current = '123'
-    })
-
-    expect(result.current.selectedUserId.current).toBe('123')
   })
 })
