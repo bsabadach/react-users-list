@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { SimpleUser } from '../model/user'
 import styles from './user.module.css'
 
-interface Props {
+export type Props = {
   user: SimpleUser
   onSelectUser: (selectedUserId: string) => void
 }
@@ -24,18 +24,18 @@ const UserCard = ({ user, onSelectUser }: Props) => {
     <div
       className={cx(
         'w-full md:w-1/3 lg:w-1/5 flex flex-col px-3',
-        styles.userCard
+        styles.userCard,
       )}
     >
       <div className="relative overflow-hidden bg-white rounded-lg shadow-xl hover:shadow-raised transform transition duration-200 hover:-translate-y-2">
         <div
           className={cx(styles.userImagePlaceholder, {
-            [styles.loaded]: imageLoaded
+            [styles.loaded]: imageLoaded,
           })}
         ></div>
         <img
           className={cx('w-full', styles.userImage, {
-            [styles.ready]: imageLoaded
+            [styles.ready]: imageLoaded,
           })}
           src={user.picture}
           alt={`${user.firstName} ${user.lastName}`}
@@ -46,7 +46,7 @@ const UserCard = ({ user, onSelectUser }: Props) => {
         <div
           className={cx(
             'p-6 flex flex-col justify-between',
-            styles.detailWrapper
+            styles.detailWrapper,
           )}
         >
           <p className="font-medium text-gray-900 leading-normal mb-2">
