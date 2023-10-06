@@ -38,17 +38,17 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const UserModalStory: Story = {
-  render: ({ user, fetchStatus }) => {
+  render: ({ fetchStatus, user }) => {
     return (
       <div className="w-1/2">
         <Modal close={() => alert('Close Modal called')}>
-          <UsersModalContent user={user} fetchStatus={fetchStatus} />
+          <UsersModalContent fetchStatus={fetchStatus} user={user} />
         </Modal>
       </div>
     )
   },
   args: {
-    user: user,
     fetchStatus: 'loading',
+    user: user,
   },
 }
