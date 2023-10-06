@@ -25,9 +25,7 @@ jest.mock('../../resource/usersResource', () => ({
 describe('useUsers', () => {
   let queryClient: QueryClient
 
-  const WrapperWithQueryClient: FC<PropsWithChildren<object>> = ({
-    children,
-  }) => {
+  const WrapperWithQueryClient: FC<PropsWithChildren> = ({ children }) => {
     return (
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     )
@@ -64,9 +62,10 @@ describe('useUsers', () => {
       )
     })
 
-    await waitFor(() => expect(userResult.isSuccess).toBe(true))
-
-    expect(userResult.data).toEqual(mockUsers)
+    await waitFor(() => {
+      expect(userResult.isSuccess).toBe(true)
+      expect(userResult.data).toEqual(mockUsers)
+    })
   })
 
   it('should set selectedUserId using setSelectedUserId', () => {
