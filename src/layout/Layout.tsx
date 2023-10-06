@@ -24,7 +24,7 @@ export const Layout = () => {
       <nav
         className={cx(
           styles.nav,
-          'font-sans h-32 flex justify-between items-center overflow-hidden mb-16'
+          'font-sans h-32 flex justify-between items-center overflow-hidden mb-16',
         )}
       >
         <div className="container mx-auto ">
@@ -61,6 +61,12 @@ export const Layout = () => {
             <h1 className="w-full text-center text-2xl">
               User list demo application with fake authentication
             </h1>
+            <a
+              href="https://master--prismatic-tarsier-d6698c.netlify.app/"
+              target="_blank"
+            >
+              see storybook
+            </a>
           </div>
         )}
       </main>
