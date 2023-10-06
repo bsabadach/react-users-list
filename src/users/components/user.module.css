@@ -25,7 +25,7 @@
 
 .user-image-placeholder {
   display: block;
-  width: 232px;
+  width: 100%;
   min-height: 235px;
   position: relative;
   top: 0;
