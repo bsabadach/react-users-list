@@ -6,7 +6,7 @@ import { QueryObserverResult } from '@tanstack/react-query'
 
 import { useUsers } from '../useUser'
 import { User } from '../user'
-import makeWithQueryClient from './utils/WithQueryClient'
+import makeWithQueryClient from '../../../../test-utils/WithQueryClient'
 
 const mockUsers = [
   { id: '1', name: 'User 1' },
