@@ -8,18 +8,18 @@ export const emptyUser = {
     street: '',
     city: '',
     timezone: '',
-    country: ''
+    country: '',
   },
   email: '',
   gender: '',
   title: '',
   registerDate: '',
   picture: '',
-  dateOfBirth: ''
+  dateOfBirth: '',
 }
 
 export type User = typeof emptyUser
 export type SimpleUser = Pick<
   User,
-  'id' | 'title' | 'lastName' | 'firstName' | 'email' | 'picture'
+  'id' | 'lastName' | 'firstName' | 'email' | 'picture'
 >
