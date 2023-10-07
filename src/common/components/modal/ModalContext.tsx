@@ -4,7 +4,7 @@ import React, {
   PropsWithChildren,
   useContext,
   useMemo,
-  useState
+  useState,
 } from 'react'
 
 const TAILWIND_OVERFLOW_Y_CLASS = 'overflow-y-hidden'
@@ -13,7 +13,7 @@ export const MODAL_CONTENT_ID = 'modal-content'
 const ModalContext = createContext({
   open: () => {},
   close: () => {},
-  isOpened: false
+  isOpened: false,
 })
 export const useModalContext = () => useContext(ModalContext)
 
