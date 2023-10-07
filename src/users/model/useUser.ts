@@ -28,10 +28,21 @@ export const useUsers = () => {
       })
   }
 
+  const filterUsers = (
+    users: SimpleUser[],
+    firstName?: string,
+  ): SimpleUser[] => {
+    if (firstName === undefined) return users
+    return users?.filter((user: SimpleUser) => {
+      return user.firstName === firstName
+    })
+  }
+
   return {
     useLoadAll,
     useLoadById,
     selectedUserId,
     usersAsOptions,
+    filterUsers,
   }
 }

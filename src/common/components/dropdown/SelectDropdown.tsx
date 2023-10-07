@@ -16,7 +16,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
   options,
   selectedOption,
   onSelect,
-  maxHeight = '300px',
+  maxHeight,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -47,7 +47,8 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
       </div>
       {isOpen && (
         <div
-          className={`absolute z-10 w-full max-h-[${maxHeight}] bg-white border border-gray-300 rounded-lg mt-1 overflow-x-hidden overflow-y-scroll`}
+          style={{ maxHeight: maxHeight }}
+          className={`absolute z-10 w-full max-h-[250px] bg-white border border-gray-300 rounded-lg mt-1 overflow-x-hidden overflow-y-scroll`}
         >
           {options.map((option) => (
             <div
