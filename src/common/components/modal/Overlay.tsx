@@ -15,7 +15,7 @@ export const Overlay: FC<PropsWithChildren> = ({ children }) => {
         <div className={styles.overlay}>
           <Modal close={close}>{children}</Modal>
         </div>,
-        overlayWrapper as Element
+        overlayWrapper as Element,
       )
     : null
 }

@@ -2,32 +2,33 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['./tsconfig.json', './integration/tsconfig.json'],
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: [
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
-    '@typescript-eslint'
+    '@typescript-eslint',
   ],
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   root: true,
   rules: {
+    "comma-dangle": ["error", "always-multiline"],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
         'argsIgnorePattern': '_',
         'varsIgnorePattern': '_',
-        'caughtErrorsIgnorePattern': '_'
-      }
+        'caughtErrorsIgnorePattern': '_',
+      },
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn'
+    'react-hooks/exhaustive-deps': 'warn',
   },
   overrides: [{
     'files': [
@@ -37,12 +38,12 @@ module.exports = {
       'eslint-plugin-react',
       'eslint-plugin-react-hooks',
       '@typescript-eslint',
-      'eslint-plugin-storybook'
+      'eslint-plugin-storybook',
     ],
     extends: [
       'eslint:recommended',
       'plugin:@typescript-eslint/recommended',
-      'plugin:storybook/recommended'
-    ]
-  }]
+      'plugin:storybook/recommended',
+    ],
+  }],
 }

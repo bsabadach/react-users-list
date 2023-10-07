@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 export const makeStore = (
   isAuth = false,
-  setAuthState = (_: boolean) => {}
+  setAuthState = (_: boolean) => {},
 ) => {
   const login = () => {
     setAuthState(true)
@@ -14,7 +14,7 @@ export const makeStore = (
   return {
     logout,
     login,
-    isAuth
+    isAuth,
   }
 }
 export const useLoginStore = () => {

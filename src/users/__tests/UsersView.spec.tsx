@@ -10,9 +10,9 @@ jest.mock('../../common/components/modal/ModalContext', () => ({
   }),
 }))
 
-const mockUsers = [
-  { id: '1', name: 'User 1' },
-  { id: '2', name: 'User 2' },
+const mockUsers: Partial<SimpleUser>[] = [
+  { id: '1', firstName: 'User 1' },
+  { id: '2', firstName: 'User 2' },
 ]
 
 jest.mock('@tanstack/react-query', () => ({
@@ -22,6 +22,7 @@ jest.mock('@tanstack/react-query', () => ({
 }))
 
 import { UsersView } from '../UsersView'
+import { SimpleUser } from '../model/user'
 
 describe('UsersView Component', () => {
   it('renders UsersList when data is successfully fetched', () => {

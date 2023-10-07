@@ -9,14 +9,14 @@ const user = {
   lastName: 'Doe',
   title: 'CEO',
   email: 'johndoe@example.com',
-  picture: 'https://example.com/johndoe.jpg'
+  picture: 'https://example.com/johndoe.jpg',
 }
 
 describe('UserCard component', () => {
   const onSelectUser = jest.fn()
   it('renders user details', () => {
     const { getByText, getByAltText } = render(
-      <UserCard user={user} onSelectUser={onSelectUser} />
+      <UserCard user={user} onSelectUser={onSelectUser} />,
     )
 
     const fullName = getByText('John Doe')
@@ -30,7 +30,7 @@ describe('UserCard component', () => {
 
   it('calls onSelectUser when the button is clicked', () => {
     const { getByTestId } = render(
-      <UserCard user={user} onSelectUser={onSelectUser} />
+      <UserCard user={user} onSelectUser={onSelectUser} />,
     )
     const selectButton = getByTestId('select-user-1')
     fireEvent.click(selectButton)
@@ -42,7 +42,7 @@ describe('UserCard component', () => {
     const onSelectUser = jest.fn()
 
     const { getByTestId } = render(
-      <UserCard user={user} onSelectUser={onSelectUser} />
+      <UserCard user={user} onSelectUser={onSelectUser} />,
     )
 
     const userImage = getByTestId('user-image')

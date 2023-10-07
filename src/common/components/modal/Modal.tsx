@@ -7,13 +7,13 @@ import styles from './modal.module.css'
 
 export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
   children,
-  close
+  close,
 }) => {
   return (
     <div
       className={cx(
         'bg-white rounded shadow max-w-full max-h-full p-4',
-        styles.modalWrapper
+        styles.modalWrapper,
       )}
       data-testid="modal-wrapper"
     >

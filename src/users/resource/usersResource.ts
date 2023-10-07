@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const headers = {
   'app-id': '63cd1cd766fd050934f194be',
-  'Cache-Control': 'no-cache'
+  'Cache-Control': 'no-cache',
 }
 
 const http = axios.create({ headers })
@@ -16,5 +16,5 @@ export const usersResource = {
   loadAll: async () => {
     const response = await http.get(`${ENDPOINT}`)
     return response.data.data
-  }
+  },
 }
