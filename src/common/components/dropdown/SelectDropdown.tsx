@@ -16,7 +16,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
   options,
   selectedOption,
   onSelect,
-  maxHeight = '300px',
+  maxHeight,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
