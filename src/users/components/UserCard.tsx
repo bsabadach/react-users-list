@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { useCallback, useState } from 'react'
 import cx from 'classnames'
-import { SimpleUser } from '../model/user'
+import { User } from '../model/user'
 import styles from './user.module.css'
 
 export type Props = {
-  user: SimpleUser
+  user: Partial<User>
   onSelectUser: (selectedUserId: string) => void
 }
 
@@ -13,7 +13,7 @@ const UserCard = ({ user, onSelectUser }: Props) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   const handleSelectUser = useCallback(() => {
-    onSelectUser(user.id)
+    onSelectUser(user.id ?? '')
   }, [user])
 
   const handleImageLoaded = () => {

@@ -5,7 +5,7 @@ import { UsersModal } from './components/UsersModal'
 import { useModalContext } from '../common/components/modal/ModalContext'
 import { useUsers } from './model/useUser'
 import { BlockUI } from '../common/components/uiblocker/BlockUI'
-import { SimpleUser } from './model/user'
+import { SimpleUser, User } from './model/user'
 import AutocompleteSelector from '../common/components/autocomplete/AutocompleteSelector'
 
 export const UsersView: FC = () => {
@@ -25,7 +25,7 @@ export const UsersView: FC = () => {
     open()
   }
 
-  const handleSelectOption = (user: Partial<SimpleUser>) => {
+  const handleSelectOption = (user: Partial<User>) => {
     setUsers(filterUsers(data, user.firstName))
   }
 
@@ -48,7 +48,7 @@ export const UsersView: FC = () => {
       <BlockUI when={isLoading}>
         <UsersList
           onSelectUser={handleSelectUser}
-          users={filterUsers(users ?? [])}
+          users={filterUsers((users ?? []) as User[])}
         />
       </BlockUI>
       <UsersModal selectedUserId={seeMoreUserId.current} />

@@ -19,7 +19,4 @@ export const emptyUser = {
 }
 
 export type User = typeof emptyUser
-export type SimpleUser = Pick<
-  User,
-  'id' | 'lastName' | 'firstName' | 'email' | 'picture'
->
+export type SimpleUser = Pick<User, 'id' | 'lastName' | 'firstName' | 'picture'>

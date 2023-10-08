@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { usersResource } from '../resource/usersResource'
-import { SimpleUser } from './user'
+import { SimpleUser, User } from './user'
 import { Option } from '../../common/components/dropdown/SelectDropdown'
 
 export const useUsers = () => {
@@ -25,13 +25,10 @@ export const useUsers = () => {
       })
   }
 
-  const filterUsers = (
-    users: SimpleUser[],
-    searchTerm?: string,
-  ): SimpleUser[] => {
+  const filterUsers = (users: User[], searchTerm?: string): User[] => {
     if (searchTerm === undefined) return users
     return users?.filter((user) => {
-      return user.firstName.toLowerCase().startsWith(searchTerm.toLowerCase())
+      return user?.firstName?.toLowerCase().startsWith(searchTerm.toLowerCase())
     })
   }
 

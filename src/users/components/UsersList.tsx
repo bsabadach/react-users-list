@@ -4,12 +4,12 @@ import cx from 'classnames'
 import UserCard from './UserCard'
 
 import styles from './user.module.css'
-import { SimpleUser } from '../model/user'
+import { User } from '../model/user'
 import { memo } from 'react'
 
 interface Props {
   onSelectUser: (id: string) => void
-  users: SimpleUser[]
+  users: Partial<User>[]
 }
 
 const UsersList = ({ users, onSelectUser }: Props) => {
