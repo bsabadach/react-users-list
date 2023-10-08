@@ -21,6 +21,10 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   const [showOptions, setShowOptions] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
 
+  const sortedOptions = options.sort((opt1: T, opt2: T) => {
+    return opt1[labelKey].localeCompare(opt2[labelKey])
+  })
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -95,7 +99,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
               style={{ maxHeight }}
               className="absolute bg-white w-full mt-1 border border-gray-300 rounded-lg shadow-lg z-10 overflow-y-scroll"
             >
-              {options?.map((option) => (
+              {sortedOptions?.map((option) => (
                 <div
                   key={option[valueKey]}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
