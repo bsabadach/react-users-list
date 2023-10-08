@@ -80,6 +80,7 @@
     "trailingComma": "all"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.18",
     "@storybook/preview-api": "^7.4.6",
     "@tanstack/react-query": "^4.35.7",
     "@types/react": "^18.2.25",

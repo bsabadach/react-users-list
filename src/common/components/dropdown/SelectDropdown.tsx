@@ -55,9 +55,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
               key={option.value}
               className="px-3 py-2 cursor-pointer hover:bg-gray-200"
               onClick={handleSelect(option)}
-            >
-              {option.label}
-            </div>
+            ></div>
           ))}
         </div>
       )}
