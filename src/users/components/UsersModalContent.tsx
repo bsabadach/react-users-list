@@ -1,30 +1,30 @@
-import * as React from 'react'
-import { FC } from 'react'
-import { format, toDate } from 'date-fns'
+import * as React from "react";
+import { FC } from "react";
+import { format, toDate } from "date-fns";
 
-import { User } from '../model/user'
-import { BlockUI } from '../../common/components/uiblocker/BlockUI'
-import { QueryStatus } from '@tanstack/react-query'
+import { User } from "../model/user";
+import { BlockUI } from "../../common/components/uiblocker/BlockUI";
+import { QueryStatus } from "@tanstack/react-query";
 
-import styles from './user.module.css'
-import cx from 'classnames'
+import styles from "./user.module.css";
+import cx from "classnames";
 
 const formatDate = (input: string | undefined) => {
-  if (!input) return ''
-  return format(toDate(new Date(input)), 'yyyy-MM-dd')
-}
+  if (!input) return "";
+  return format(toDate(new Date(input)), "yyyy-MM-dd");
+};
 
 type Props = {
-  user: User | undefined
-  fetchStatus: QueryStatus
-}
+  user: User | undefined;
+  fetchStatus: QueryStatus;
+};
 
 export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
   <div
-    className={cx('relative p-4', styles.userModalWrapper)}
+    className={cx("relative p-4", styles.userModalWrapper)}
     data-testid="user-modal"
   >
-    <BlockUI when={fetchStatus === 'loading'}>
+    <BlockUI when={fetchStatus === "loading"}>
       <div>
         <div className="mb-4 flex flex-row overflow-hidden">
           <div className="w-1/3">
@@ -64,4 +64,4 @@ export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
       </div>
     </BlockUI>
   </div>
-)
+);

@@ -1,18 +1,18 @@
-import { useQuery } from '@tanstack/react-query'
-import { usersResource } from '../resource/usersResource'
-import { SimpleUser, User } from './user'
-import { Option } from '../../common/components/dropdown/SelectDropdown'
+import { useQuery } from "@tanstack/react-query";
+import { usersResource } from "../resource/usersResource";
+import { SimpleUser, User } from "./user";
+import { Option } from "../../common/components/dropdown/SelectDropdown";
 
 export const useUsers = () => {
   const useLoadById = (selectedUserId: string) => {
-    return useQuery(['user', selectedUserId], () =>
+    return useQuery(["user", selectedUserId], () =>
       usersResource.load(selectedUserId),
-    )
-  }
+    );
+  };
 
   const useLoadAll = () => {
-    return useQuery(['users'], () => usersResource.loadAll())
-  }
+    return useQuery(["users"], () => usersResource.loadAll());
+  };
 
   const usersAsOptions = (users: SimpleUser[]) => {
     return users
@@ -21,21 +21,23 @@ export const useUsers = () => {
         value: user.id,
       }))
       .sort((option1: Option, option2: Option) => {
-        return option1.label.localeCompare(option2.label)
-      })
-  }
+        return option1.label.localeCompare(option2.label);
+      });
+  };
 
   const filterUsers = (users: User[], searchTerm?: string): User[] => {
-    if (searchTerm === undefined) return users
+    if (searchTerm === undefined) return users;
     return users?.filter((user) => {
-      return user?.firstName?.toLowerCase().startsWith(searchTerm.toLowerCase())
-    })
-  }
+      return user?.firstName
+        ?.toLowerCase()
+        .startsWith(searchTerm.toLowerCase());
+    });
+  };
 
   return {
     useLoadAll,
     useLoadById,
     usersAsOptions,
     filterUsers,
-  }
-}
+  };
+};

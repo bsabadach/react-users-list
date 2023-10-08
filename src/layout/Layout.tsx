@@ -1,30 +1,30 @@
-import * as React from 'react'
+import * as React from "react";
 
-import cx from 'classnames'
-import styles from './layout.module.css'
-import { Outlet, useNavigate } from 'react-router-dom'
-import { useAuthContext } from '../auth/AuthProvider'
+import cx from "classnames";
+import styles from "./layout.module.css";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useAuthContext } from "../auth/AuthProvider";
 
-type ActionType = 'login' | 'logout'
+type ActionType = "login" | "logout";
 export const Layout = () => {
-  const { logout, login, isAuthenticated } = useAuthContext()
-  const navigate = useNavigate()
+  const { logout, login, isAuthenticated } = useAuthContext();
+  const navigate = useNavigate();
   const handleButtonClicked = (name: ActionType) => () => {
-    if (name === 'logout') {
-      logout()
-      navigate('/')
-      return
+    if (name === "logout") {
+      logout();
+      navigate("/");
+      return;
     }
-    login()
-    navigate('/users')
-  }
+    login();
+    navigate("/users");
+  };
 
   return (
     <>
       <nav
         className={cx(
           styles.nav,
-          'mb-16 flex h-32 items-center justify-between overflow-hidden font-sans',
+          "mb-16 flex h-32 items-center justify-between overflow-hidden font-sans",
         )}
       >
         <div className="container mx-auto ">
@@ -33,7 +33,7 @@ export const Layout = () => {
             {!isAuthenticated && (
               <button
                 data-testid="login-button"
-                onClick={handleButtonClicked('login')}
+                onClick={handleButtonClicked("login")}
                 className="h-full w-1/4 border px-8 text-xl shadow"
               >
                 <span className={styles.authAction} data-testid="login-text">
@@ -43,7 +43,7 @@ export const Layout = () => {
             )}
             {isAuthenticated && (
               <button
-                onClick={handleButtonClicked('logout')}
+                onClick={handleButtonClicked("logout")}
                 className="h-full w-1/4 border px-8 text-xl shadow"
               >
                 <span className={styles.authAction} data-testid="logout-text">
@@ -73,5 +73,5 @@ export const Layout = () => {
         )}
       </main>
     </>
-  )
-}
+  );
+};

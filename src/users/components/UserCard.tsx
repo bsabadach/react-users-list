@@ -1,29 +1,29 @@
-import * as React from 'react'
-import { useCallback, useState } from 'react'
-import cx from 'classnames'
-import { User } from '../model/user'
-import styles from './user.module.css'
+import * as React from "react";
+import { useCallback, useState } from "react";
+import cx from "classnames";
+import { User } from "../model/user";
+import styles from "./user.module.css";
 
 export type Props = {
-  user: Partial<User>
-  onSelectUser: (selectedUserId: string) => void
-}
+  user: Partial<User>;
+  onSelectUser: (selectedUserId: string) => void;
+};
 
 const UserCard = ({ user, onSelectUser }: Props) => {
-  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleSelectUser = useCallback(() => {
-    onSelectUser(user.id ?? '')
-  }, [user])
+    onSelectUser(user.id ?? "");
+  }, [user]);
 
   const handleImageLoaded = () => {
-    setImageLoaded(true)
-  }
+    setImageLoaded(true);
+  };
 
   return (
     <div
       className={cx(
-        'flex w-full flex-col px-3 md:w-1/3 lg:w-1/5',
+        "flex w-full flex-col px-3 md:w-1/3 lg:w-1/5",
         styles.userCard,
       )}
     >
@@ -34,7 +34,7 @@ const UserCard = ({ user, onSelectUser }: Props) => {
           })}
         ></div>
         <img
-          className={cx('w-full', styles.userImage, {
+          className={cx("w-full", styles.userImage, {
             [styles.ready]: imageLoaded,
           })}
           src={user.picture}
@@ -45,7 +45,7 @@ const UserCard = ({ user, onSelectUser }: Props) => {
 
         <div
           className={cx(
-            'flex flex-col justify-between p-6',
+            "flex flex-col justify-between p-6",
             styles.detailWrapper,
           )}
         >
@@ -69,7 +69,7 @@ const UserCard = ({ user, onSelectUser }: Props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserCard
+export default UserCard;
