@@ -26,7 +26,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   })
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         wrapperRef.current &&
         !wrapperRef.current.contains(event.target as Node)
@@ -34,11 +34,9 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
         setShowOptions(false)
       }
     }
-
     document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
+
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   const handleInputClicked = () => {
@@ -76,6 +74,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
           />
 
           <button
+            data-testid="reset-action"
             className="absolute top-1/2 right-3 -translate-y-1/2 transform"
             onClick={handleResetInput}
           >
