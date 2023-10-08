@@ -14,3 +14,5 @@ a simple list of users application using:
 # preview
 
 https://master--exquisite-cendol-207eb6.netlify.app/#/users
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/00ef78ad-3609-449b-9057-33b5a9deb211/deploy-status)](https://app.netlify.com/sites/exquisite-cendol-207eb6/deploys)

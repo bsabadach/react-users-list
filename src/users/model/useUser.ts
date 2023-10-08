@@ -1,12 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { usersResource } from '../resource/usersResource'
-import { useRef } from 'react'
 import { SimpleUser } from './user'
 import { Option } from '../../common/components/dropdown/SelectDropdown'
 
 export const useUsers = () => {
-  const selectedUserId = useRef('')
-
   const useLoadById = (selectedUserId: string) => {
     return useQuery(['user', selectedUserId], () =>
       usersResource.load(selectedUserId),
@@ -30,18 +27,17 @@ export const useUsers = () => {
 
   const filterUsers = (
     users: SimpleUser[],
-    firstName?: string,
+    searchTerm?: string,
   ): SimpleUser[] => {
-    if (firstName === undefined) return users
-    return users?.filter((user: SimpleUser) => {
-      return user.firstName === firstName
+    if (searchTerm === undefined) return users
+    return users?.filter((user) => {
+      return user.firstName.toLowerCase().startsWith(searchTerm.toLowerCase())
     })
   }
 
   return {
     useLoadAll,
     useLoadById,
-    selectedUserId,
     usersAsOptions,
     filterUsers,
   }
