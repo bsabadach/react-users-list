@@ -7,7 +7,7 @@ import { useAuthContext } from '../auth/AuthProvider'
 
 type ActionType = 'login' | 'logout'
 export const Layout = () => {
-  const { logout, login, isAuth } = useAuthContext()
+  const { logout, login, isAuthenticated } = useAuthContext()
   const navigate = useNavigate()
   const handleButtonClicked = (name: ActionType) => () => {
     if (name === 'logout') {
@@ -30,7 +30,7 @@ export const Layout = () => {
         <div className="container mx-auto ">
           <div className="flex flex-row justify-between items-center">
             <h1 className={styles.title}>USERS LIST APPLICATION</h1>
-            {!isAuth && (
+            {!isAuthenticated && (
               <button
                 data-testid="login-button"
                 onClick={handleButtonClicked('login')}
@@ -41,7 +41,7 @@ export const Layout = () => {
                 </span>
               </button>
             )}
-            {isAuth && (
+            {isAuthenticated && (
               <button
                 onClick={handleButtonClicked('logout')}
                 className="h-full w-1/4 px-8 text-xl border shadow"
@@ -56,7 +56,7 @@ export const Layout = () => {
       </nav>
       <main>
         <Outlet />
-        {!isAuth && (
+        {!isAuthenticated && (
           <div className="container mx-auto py-8 rounded shadow">
             <h1 className="w-full text-center text-2xl">
               User list demo application with fake authentication

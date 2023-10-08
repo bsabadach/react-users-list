@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { useAuthContext } from '../../../auth/AuthProvider'
 
 const GuardedRoute: FC<PropsWithChildren> = ({ children }) => {
-  const { isAuth } = useAuthContext()
-  return isAuth ? children : <Navigate to="/" />
+  const { isAuthenticated } = useAuthContext()
+  return isAuthenticated ? children : <Navigate to="/" />
 }
 export default GuardedRoute
