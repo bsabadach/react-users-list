@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { createRoot } from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
-import { UsersView } from './users/UsersView'
+
 import App from './App'
 import NotFound from './common/components/404/NotFound'
 import GuardedRoute from './common/components/guarded-route/GuardedRoute'
+import { UsersView } from './users/UsersView'
 
 const router = createHashRouter([
   {

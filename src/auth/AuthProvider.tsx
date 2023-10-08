@@ -1,11 +1,11 @@
 import React, { createContext, FC, PropsWithChildren, useContext } from 'react'
-import { makeStore, useLoginStore } from './useLoginStore'
+import { makeAuthStore, useAuthStore } from './useAuthStore'
 
-const AuthContext = createContext(makeStore())
+const AuthContext = createContext(makeAuthStore())
 export const useAuthContext = () => useContext(AuthContext)
 export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <AuthContext.Provider value={useLoginStore()}>
+    <AuthContext.Provider value={useAuthStore()}>
       {children}
     </AuthContext.Provider>
   )

@@ -18,7 +18,7 @@ export const UsersView: FC = () => {
 
   useEffect(() => {
     setUsers(data)
-  }, [isSuccess])
+  }, [isSuccess, data])
 
   const handleSelectUser = (userId: string) => {
     seeMoreUserId.current = userId

@@ -5,8 +5,8 @@ import '@testing-library/jest-dom'
 import { QueryObserverResult } from '@tanstack/react-query'
 
 import { useUsers } from '../useUser'
-import { User } from '../user'
-import makeWithQueryClient from '../../../../test-utils/WithQueryClient'
+import { SimpleUser, User } from '../user'
+import makeWithQueryClientProvider from '../../../../test-utils/WithQueryClient'
 
 const mockUsers = [
   { id: '1', name: 'User 1' },
@@ -23,23 +23,25 @@ jest.mock('../../resource/usersResource', () => ({
 }))
 
 describe('useUsers', () => {
-  const WrapperWithQueryClient = makeWithQueryClient()
+  const WithQueryClientProvider = makeWithQueryClientProvider()
 
-  it('useLoadById should load user useQuery', async () => {
-    let userFetchResult = {} as unknown as QueryObserverResult<User[], User[]>
+  it('useLoadById should load user using useQuery', async () => {
+    let userFetchResult = {} as Partial<
+      QueryObserverResult<SimpleUser, SimpleUser>
+    >
     const { result } = renderHook(() => useUsers())
     const Actor = () => {
-      userFetchResult = result.current.useLoadById(
-        '1',
-      ) as unknown as QueryObserverResult<User[], User[]>
+      userFetchResult = result.current.useLoadById('1') as Partial<
+        QueryObserverResult<SimpleUser, SimpleUser>
+      >
       return <div></div>
     }
 
     act(() => {
       render(
-        <WrapperWithQueryClient>
+        <WithQueryClientProvider>
           <Actor />
-        </WrapperWithQueryClient>,
+        </WithQueryClientProvider>,
       )
     })
 
@@ -55,21 +57,19 @@ describe('useUsers', () => {
     let usersListResult = {
       data: [],
       isSuccess: false,
-    } as unknown as QueryObserverResult<User[], User[]>
+    } as Partial<QueryObserverResult<User[], User[]>>
     const Actor = () => {
-      usersListResult =
-        result.current.useLoadAll() as unknown as QueryObserverResult<
-          User[],
-          User[]
-        >
+      usersListResult = result.current.useLoadAll() as Partial<
+        QueryObserverResult<User[], User[]>
+      >
       return null
     }
 
     act(() => {
       render(
-        <WrapperWithQueryClient>
+        <WithQueryClientProvider>
           <Actor />
-        </WrapperWithQueryClient>,
+        </WithQueryClientProvider>,
       )
     })
 

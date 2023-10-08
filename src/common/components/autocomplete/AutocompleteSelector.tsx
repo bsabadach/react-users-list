@@ -37,13 +37,17 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
     }
   }, [])
 
+  const handleInputClicked = () => {
+    setShowOptions(true)
+  }
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
     onSelect({ [labelKey]: e.target.value, [valueKey]: '' } as Partial<T>)
     setShowOptions(true)
   }
 
-  const handleOptionSelect = (option: T) => {
+  const handleOptionSelect = (option: T) => () => {
     setInputValue(option[labelKey])
     onSelect(option)
     setShowOptions(false)
@@ -64,7 +68,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
             onChange={handleInputChange}
             className="w-full border border-gray-300 p-2 rounded-lg pr-10"
             placeholder="search..."
-            onClick={() => setShowOptions(true)}
+            onClick={handleInputClicked}
           />
 
           <button
@@ -95,7 +99,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
                 <div
                   key={option[valueKey]}
                   className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => handleOptionSelect(option)}
+                  onClick={handleOptionSelect(option)}
                 >
                   {option[labelKey]}
                 </div>
