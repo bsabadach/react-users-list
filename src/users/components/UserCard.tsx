@@ -23,11 +23,11 @@ const UserCard = ({ user, onSelectUser }: Props) => {
   return (
     <div
       className={cx(
-        'w-full md:w-1/3 lg:w-1/5 flex flex-col px-3',
+        'flex w-full flex-col px-3 md:w-1/3 lg:w-1/5',
         styles.userCard,
       )}
     >
-      <div className="relative overflow-hidden bg-white rounded-lg shadow-xl hover:shadow-raised transform transition duration-200 hover:-translate-y-2">
+      <div className="hover:shadow-raised relative transform overflow-hidden rounded-lg bg-white shadow-xl transition duration-200 hover:-translate-y-2">
         <div
           className={cx(styles.userImagePlaceholder, {
             [styles.loaded]: imageLoaded,
@@ -45,22 +45,22 @@ const UserCard = ({ user, onSelectUser }: Props) => {
 
         <div
           className={cx(
-            'p-6 flex flex-col justify-between',
+            'flex flex-col justify-between p-6',
             styles.detailWrapper,
           )}
         >
-          <p className="font-medium text-gray-900 leading-normal mb-2">
+          <p className="mb-2 font-medium leading-normal text-gray-900">
             {user.firstName} {user.lastName}
           </p>
           <p
-            className="font-hairline text-sm text-gray-500 truncate mb-4"
+            className="font-hairline mb-4 truncate text-sm text-gray-500"
             title={user.email}
           >
             {user.email}
           </p>
           <button
             onClick={handleSelectUser}
-            className="text-gray-500 w-full text-right text-sm"
+            className="w-full text-right text-sm text-gray-500"
             data-testid={`select-user-${user?.id}`}
           >
             <i className="fas fa-eye fa-fw" />

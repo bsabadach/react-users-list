@@ -16,7 +16,7 @@ const UsersList = ({ users, onSelectUser }: Props) => {
   return (
     <section
       data-testid="users-list"
-      className={cx('w-full bg-white relative', styles.usersList)}
+      className={cx('relative w-full bg-white', styles.usersList)}
     >
       <div className="flex flex-wrap items-center justify-center gap-6">
         {users.map((user) => (
