@@ -12,7 +12,7 @@ export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
   return (
     <div
       className={cx(
-        'bg-white rounded shadow max-w-full max-h-full p-4',
+        'max-h-full max-w-full rounded bg-white p-4 shadow',
         styles.modalWrapper,
       )}
       data-testid="modal-wrapper"

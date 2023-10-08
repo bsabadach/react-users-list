@@ -11,7 +11,7 @@ export const Login = () => {
   }
   return (
     <div className="container mx-auto flex flex-col items-end">
-      <button className="h-full w-1/4 px-8 text-xl border shadow">
+      <button className="h-full w-1/4 border px-8 text-xl shadow">
         <span onClick={handleLoginClicked}>Login</span>
       </button>
     </div>

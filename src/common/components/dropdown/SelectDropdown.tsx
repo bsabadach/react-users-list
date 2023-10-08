@@ -26,14 +26,14 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
   }
 
   return (
-    <div className="relative w-full h-auto">
+    <div className="relative h-auto w-full">
       <div
-        className="block w-full min-h-[40px] bg-white border border-gray-300 rounded-lg px-3 py-2 pr-8 cursor-pointer relative focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="relative block min-h-[40px] w-full cursor-pointer rounded-lg border border-gray-300 bg-white px-3 py-2 pr-8 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{selectedOption?.label}</span>
         <svg
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none"
+          className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-gray-400"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
@@ -48,12 +48,12 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
       {isOpen && (
         <div
           style={{ maxHeight: maxHeight }}
-          className={`absolute z-10 w-full max-h-[250px] bg-white border border-gray-300 rounded-lg mt-1 overflow-x-hidden overflow-y-scroll`}
+          className={`absolute z-10 mt-1 max-h-[250px] w-full overflow-x-hidden overflow-y-scroll rounded-lg border border-gray-300 bg-white`}
         >
           {options.map((option) => (
             <div
               key={option.value}
-              className="px-3 py-2 cursor-pointer hover:bg-gray-200"
+              className="cursor-pointer px-3 py-2 hover:bg-gray-200"
               onClick={handleSelect(option)}
             ></div>
           ))}

@@ -24,17 +24,17 @@ export const Layout = () => {
       <nav
         className={cx(
           styles.nav,
-          'font-sans h-32 flex justify-between items-center overflow-hidden mb-16',
+          'mb-16 flex h-32 items-center justify-between overflow-hidden font-sans',
         )}
       >
         <div className="container mx-auto ">
-          <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row items-center justify-between">
             <h1 className={styles.title}>USERS LIST APPLICATION</h1>
             {!isAuthenticated && (
               <button
                 data-testid="login-button"
                 onClick={handleButtonClicked('login')}
-                className="h-full w-1/4 px-8 text-xl border shadow"
+                className="h-full w-1/4 border px-8 text-xl shadow"
               >
                 <span className={styles.authAction} data-testid="login-text">
                   Login
@@ -44,7 +44,7 @@ export const Layout = () => {
             {isAuthenticated && (
               <button
                 onClick={handleButtonClicked('logout')}
-                className="h-full w-1/4 px-8 text-xl border shadow"
+                className="h-full w-1/4 border px-8 text-xl shadow"
               >
                 <span className={styles.authAction} data-testid="logout-text">
                   Logout
@@ -57,7 +57,7 @@ export const Layout = () => {
       <main>
         <Outlet />
         {!isAuthenticated && (
-          <div className="container mx-auto py-8 rounded shadow">
+          <div className="container mx-auto rounded py-8 shadow">
             <h1 className="w-full text-center text-2xl">
               User list demo application with fake authentication
             </h1>

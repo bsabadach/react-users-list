@@ -26,7 +26,7 @@ export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
   >
     <BlockUI when={fetchStatus === 'loading'}>
       <div>
-        <div className="overflow-hidden flex flex-row mb-4">
+        <div className="mb-4 flex flex-row overflow-hidden">
           <div className="w-1/3">
             <img
               className="w-full rounded"
@@ -35,27 +35,27 @@ export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (
             />
           </div>
           <div className="w-2/3 px-8 text-gray-800">
-            <div className="text-sm mb-4 text-gray-500">{user?.id}</div>
-            <h2 className="text-xl text-truncate mb-4 ">
+            <div className="mb-4 text-sm text-gray-500">{user?.id}</div>
+            <h2 className="text-truncate mb-4 text-xl ">
               <b>
                 {user?.title}. {user?.firstName} {user?.lastName}
               </b>
             </h2>
-            <p className="text-sm text-truncate mb-2">
+            <p className="text-truncate mb-2 text-sm">
               <span>
                 <b>Date Of Birth:</b>
               </span>
               <span>{formatDate(user?.dateOfBirth)}</span>
             </p>
-            <p className="text-sm text-truncate mb-2">
+            <p className="text-truncate mb-2 text-sm">
               <b>Email: </b>
               {user?.email}
             </p>
-            <p className="text-sm text-truncate mb-4">
+            <p className="text-truncate mb-4 text-sm">
               <b>Phone: </b>
               {user?.phone}
             </p>
-            <p className="text-sm text-truncate">
+            <p className="text-truncate text-sm">
               <b>Register Date: </b>
               {formatDate(user?.registerDate)}
             </p>

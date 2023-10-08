@@ -61,21 +61,21 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   }
 
   return (
-    <div className="w-full min-h-[50px] flex flex-col items-center justify-center">
-      <div className="bg-white p-4 rounded-lg shadow-lg">
+    <div className="flex min-h-[50px] w-full flex-col items-center justify-center">
+      <div className="rounded-lg bg-white p-4 shadow-lg">
         <div className="relative" ref={wrapperRef}>
           <input
             type="text"
             value={inputValue}
             onChange={handleInputChange}
-            className="w-full border border-gray-300 p-2 rounded-lg pr-10"
+            className="w-full rounded-lg border border-gray-300 p-2 pr-10"
             placeholder="search..."
             onClick={handleInputClicked}
           />
 
           <button
             data-testid="reset-action"
-            className="absolute top-1/2 right-3 -translate-y-1/2 transform"
+            className="absolute right-3 top-1/2 -translate-y-1/2 transform"
             onClick={handleResetInput}
           >
             <svg
@@ -96,12 +96,12 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
           {showOptions && (
             <div
               style={{ maxHeight }}
-              className="absolute bg-white w-full mt-1 border border-gray-300 rounded-lg shadow-lg z-10 overflow-y-scroll"
+              className="absolute z-10 mt-1 w-full overflow-y-scroll rounded-lg border border-gray-300 bg-white shadow-lg"
             >
               {sortedOptions?.map((option) => (
                 <div
                   key={option[valueKey]}
-                  className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  className="cursor-pointer px-4 py-2 hover:bg-gray-100"
                   onClick={handleOptionSelect(option)}
                 >
                   {option[labelKey]}

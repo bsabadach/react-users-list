@@ -34,6 +34,7 @@
     "./jest-setup.ts",
     "./jest.config.ts",
     "./.eslintrc.js",
+    ",./prettier-config.js",
     "./vite.config.ts",
     "./tailwind.config.js",
     "./playwright.config.ts",

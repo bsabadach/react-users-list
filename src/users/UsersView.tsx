@@ -34,8 +34,8 @@ export const UsersView: FC = () => {
   }
 
   return (
-    <div className={'container mx-auto flex flex-col items-end'}>
-      <div className={'w-64 mb-8'}>
+    <div className="container relative mx-auto flex flex-col items-end">
+      <div className={'mb-8 w-64'}>
         <AutocompleteSelector<SimpleUser>
           options={users ?? []}
           onSelect={handleSelectOption}
