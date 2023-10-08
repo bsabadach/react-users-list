@@ -1,16 +1,16 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState } from "react";
 
 export type Option = {
-  value: string
-  label: string
-}
+  value: string;
+  label: string;
+};
 
 type SelectDropdownProps = {
-  options: Option[]
-  selectedOption: Option
-  onSelect: (option: Option) => void
-  maxHeight?: string
-}
+  options: Option[];
+  selectedOption: Option;
+  onSelect: (option: Option) => void;
+  maxHeight?: string;
+};
 
 const SelectDropdown: FC<SelectDropdownProps> = ({
   options,
@@ -18,12 +18,12 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
   onSelect,
   maxHeight,
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSelect = (option: Option) => () => {
-    onSelect(option as Option)
-    setIsOpen(!isOpen)
-  }
+    onSelect(option as Option);
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className="relative h-auto w-full">
@@ -60,7 +60,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SelectDropdown
+export default SelectDropdown;

@@ -14,7 +14,7 @@
     "lint:format": "prettier  --log-level warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
     "lint": "pnpm run lint:format && pnpm run lint:fix ",
     "type-check": "tsc",
-    "test:unit": "jest",
+    "test:unit": "jest --coverage=true",
     "test:integration": "pnpm exec playwright install && npx playwright test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

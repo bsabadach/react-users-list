@@ -1,29 +1,29 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from "react";
 
 export type AutoCompleteSelectorProps<T extends Record<string, string>> = {
-  options: T[]
-  onSelect: (option: Partial<T>) => void
-  onReset: () => void
-  labelKey?: keyof T
-  valueKey?: keyof T
-  maxHeight?: string
-}
+  options: T[];
+  onSelect: (option: Partial<T>) => void;
+  onReset: () => void;
+  labelKey?: keyof T;
+  valueKey?: keyof T;
+  maxHeight?: string;
+};
 
 const AutoCompleteSelector = <T extends Record<string, string>>({
   options,
-  labelKey = 'label' as keyof T,
-  valueKey = 'value' as keyof T,
+  labelKey = "label" as keyof T,
+  valueKey = "value" as keyof T,
   onSelect,
   onReset,
-  maxHeight = '300px',
+  maxHeight = "300px",
 }: AutoCompleteSelectorProps<T>) => {
-  const [inputValue, setInputValue] = useState('')
-  const [showOptions, setShowOptions] = useState(false)
-  const wrapperRef = useRef<HTMLDivElement>(null)
+  const [inputValue, setInputValue] = useState("");
+  const [showOptions, setShowOptions] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const sortedOptions = options.sort((opt1: T, opt2: T) => {
-    return opt1[labelKey].localeCompare(opt2[labelKey])
-  })
+    return opt1[labelKey].localeCompare(opt2[labelKey]);
+  });
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -31,34 +31,34 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
         wrapperRef.current &&
         !wrapperRef.current.contains(event.target as Node)
       ) {
-        setShowOptions(false)
+        setShowOptions(false);
       }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
+    };
+    document.addEventListener("mousedown", handleClickOutside);
 
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleInputClicked = () => {
-    setShowOptions(true)
-  }
+    setShowOptions(true);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value)
-    onSelect({ [labelKey]: e.target.value, [valueKey]: '' } as Partial<T>)
-    setShowOptions(true)
-  }
+    setInputValue(e.target.value);
+    onSelect({ [labelKey]: e.target.value, [valueKey]: "" } as Partial<T>);
+    setShowOptions(true);
+  };
 
   const handleOptionSelect = (option: T) => () => {
-    setInputValue(option[labelKey])
-    onSelect(option)
-    setShowOptions(false)
-  }
+    setInputValue(option[labelKey]);
+    onSelect(option);
+    setShowOptions(false);
+  };
 
   const handleResetInput = () => {
-    setInputValue('')
-    onReset()
-  }
+    setInputValue("");
+    onReset();
+  };
 
   return (
     <div className="flex min-h-[50px] w-full flex-col items-center justify-center">
@@ -112,7 +112,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AutoCompleteSelector
+export default AutoCompleteSelector;
