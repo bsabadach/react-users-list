@@ -13,8 +13,10 @@ module.exports = {
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
     '@typescript-eslint',
+    'eslint-plugin-prettier',
+    'eslint-plugin-storybook',
   ],
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended',"prettier"],
   root: true,
   rules: {
     "comma-dangle": ["error", "always-multiline"],

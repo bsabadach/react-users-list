@@ -38,6 +38,7 @@
     "./vite.config.ts",
     "./tailwind.config.js",
     "./playwright.config.ts",
+    "./prettier-config.js",
     "./.storybook/**/*.ts"
   ],
   "exclude": [

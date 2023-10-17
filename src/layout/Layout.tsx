@@ -1,4 +1,5 @@
 import * as React from "react";
+import { memo } from "react";
 
 import cx from "classnames";
 import styles from "./layout.module.css";
@@ -6,7 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../auth/AuthProvider";
 
 type ActionType = "login" | "logout";
-export const Layout = () => {
+const Layout = () => {
   const { logout, login, isAuthenticated } = useAuthContext();
   const navigate = useNavigate();
   const handleButtonClicked = (name: ActionType) => () => {
@@ -24,7 +25,7 @@ export const Layout = () => {
       <nav
         className={cx(
           styles.nav,
-          "mb-16 flex h-32 items-center justify-between overflow-hidden font-sans",
+          "mb-8 flex h-32 items-center justify-between overflow-hidden font-sans",
         )}
       >
         <div className="container mx-auto ">
@@ -34,7 +35,7 @@ export const Layout = () => {
               <button
                 data-testid="login-button"
                 onClick={handleButtonClicked("login")}
-                className="h-full w-1/4 border px-8 text-xl shadow"
+                className="shadow h-full w-1/4 border px-8 text-xl"
               >
                 <span className={styles.authAction} data-testid="login-text">
                   Login
@@ -61,7 +62,7 @@ export const Layout = () => {
             <h1 className="w-full text-center text-2xl">
               User list demo application with fake authentication
             </h1>
-            <div className="w-full text-center text-blue-600">
+            <div className="w-full text-right text-blue-600 pr-8">
               <a
                 href="https://master--prismatic-tarsier-d6698c.netlify.app/"
                 target="_blank"
@@ -75,3 +76,5 @@ export const Layout = () => {
     </>
   );
 };
+
+export default memo(Layout);

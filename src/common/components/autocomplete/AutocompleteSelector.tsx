@@ -1,29 +1,47 @@
 import React, { useState, useEffect, useRef } from "react";
 
+type Option<T> = {
+  label: keyof T;
+  value: keyof T;
+  data: T;
+};
 export type AutoCompleteSelectorProps<T extends Record<string, string>> = {
-  options: T[];
-  onSelect: (option: Partial<T>) => void;
+  items: T[];
+  onSelect: (data: T) => void;
   onReset: () => void;
   labelKey?: keyof T;
   valueKey?: keyof T;
-  maxHeight?: string;
+  maxHeight?: number;
 };
 
 const AutoCompleteSelector = <T extends Record<string, string>>({
-  options,
+  items,
   labelKey = "label" as keyof T,
   valueKey = "value" as keyof T,
   onSelect,
   onReset,
-  maxHeight = "300px",
+  maxHeight = 300,
 }: AutoCompleteSelectorProps<T>) => {
   const [inputValue, setInputValue] = useState("");
   const [showOptions, setShowOptions] = useState(false);
+  const [options, setOptions] = useState<Option<T>[]>([]);
+  const [displayedOptions, setDisplayedOptions] = useState<Option<T>[]>([]);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const sortedOptions = options.sort((opt1: T, opt2: T) => {
-    return opt1[labelKey].localeCompare(opt2[labelKey]);
-  });
+  useEffect(() => {
+    const options: Option<T>[] = (JSON.parse(JSON.stringify(items)) as T[]).map(
+      (item) => ({
+        label: item[labelKey],
+        value: item[valueKey],
+        data: item,
+      }),
+    );
+    setOptions(options);
+  }, [items]);
+
+  useEffect(() => {
+    setDisplayedOptions(JSON.parse(JSON.stringify(options)));
+  }, [options]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -44,19 +62,32 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-    onSelect({ [labelKey]: e.target.value, [valueKey]: "" } as Partial<T>);
+    const value = e.target.value.trim();
+    setInputValue(value);
+    if (!value) {
+      setDisplayedOptions(JSON.parse(JSON.stringify(options)));
+      setShowOptions(true);
+      return;
+    }
+    const filteredOptions: Option<T>[] = options.filter((option) => {
+      return (option.label as string)
+        .toLowerCase()
+        .startsWith(e.target.value.toLowerCase());
+    });
+    setDisplayedOptions(filteredOptions);
     setShowOptions(true);
   };
 
-  const handleOptionSelect = (option: T) => () => {
-    setInputValue(option[labelKey]);
-    onSelect(option);
-    setShowOptions(false);
+  const handleOptionSelect = (option: Option<T>) => () => {
+    setInputValue(option.label as string);
+    onSelect(option.data);
+    //setShowOptions(false);
   };
 
   const handleResetInput = () => {
     setInputValue("");
+    setDisplayedOptions(JSON.parse(JSON.stringify(options)));
+    //setShowOptions(false);
     onReset();
   };
 
@@ -98,13 +129,13 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
               style={{ maxHeight }}
               className="absolute z-10 mt-1 w-full overflow-y-scroll rounded-lg border border-gray-300 bg-white shadow-lg"
             >
-              {sortedOptions?.map((option) => (
+              {displayedOptions?.map((option) => (
                 <div
-                  key={option[valueKey]}
+                  key={option.value as string}
                   className="cursor-pointer px-4 py-2 hover:bg-gray-100"
-                  onClick={handleOptionSelect(option)}
+                  onClick={handleOptionSelect(option as Option<T>)}
                 >
-                  {option[labelKey]}
+                  {option.label as string}
                 </div>
               ))}
             </div>

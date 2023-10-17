@@ -4,7 +4,7 @@ import "@testing-library/jest-dom";
 import AutoCompleteSelector from "../AutocompleteSelector";
 
 describe("AutoCompleteSelector", () => {
-  const options = [
+  const items = [
     { label: "Option 1", value: "value1" },
     { label: "Option 2", value: "value2" },
     { label: "Option 3", value: "value3" },
@@ -13,7 +13,7 @@ describe("AutoCompleteSelector", () => {
   it("renders the AutoCompleteSelector component without crashing", () => {
     render(
       <AutoCompleteSelector
-        options={options}
+        items={items}
         onSelect={() => {}}
         onReset={() => {}}
       />,
@@ -29,7 +29,7 @@ describe("AutoCompleteSelector", () => {
   it("displays options when the input field is clicked", () => {
     render(
       <AutoCompleteSelector
-        options={options}
+        items={items}
         onSelect={() => {}}
         onReset={() => {}}
       />,
@@ -52,7 +52,7 @@ describe("AutoCompleteSelector", () => {
 
     render(
       <AutoCompleteSelector
-        options={options}
+        items={items}
         onSelect={onSelectMock}
         onReset={() => {}}
       />,
@@ -64,7 +64,7 @@ describe("AutoCompleteSelector", () => {
     const option2 = screen.getByText("Option 2");
     fireEvent.click(option2);
 
-    expect(onSelectMock).toHaveBeenCalledWith(options.at(1));
+    expect(onSelectMock).toHaveBeenCalledWith(items.at(1));
   });
 
   it("resets the input when the reset button is clicked", () => {
@@ -72,7 +72,7 @@ describe("AutoCompleteSelector", () => {
 
     render(
       <AutoCompleteSelector
-        options={options}
+        items={items}
         onSelect={() => {}}
         onReset={onResetMock}
       />,
