@@ -37,12 +37,12 @@ export const UsersView: FC = () => {
     <div className="container relative mx-auto flex flex-col items-end">
       <div className={"mb-8 w-64"}>
         <AutocompleteSelector<SimpleUser>
-          options={users ?? []}
+          items={users}
           onSelect={handleSelectOption}
           onReset={handleOnReset}
           labelKey={"firstName"}
           valueKey={"id"}
-          maxHeight="350px"
+          maxHeight={350}
         />
       </div>
       <BlockUI when={isLoading}>

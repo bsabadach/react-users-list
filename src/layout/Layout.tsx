@@ -1,4 +1,5 @@
 import * as React from "react";
+import { memo } from "react";
 
 import cx from "classnames";
 import styles from "./layout.module.css";
@@ -6,7 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../auth/AuthProvider";
 
 type ActionType = "login" | "logout";
-export const Layout = () => {
+const Layout = () => {
   const { logout, login, isAuthenticated } = useAuthContext();
   const navigate = useNavigate();
   const handleButtonClicked = (name: ActionType) => () => {
@@ -75,3 +76,5 @@ export const Layout = () => {
     </>
   );
 };
+
+export default memo(Layout);
