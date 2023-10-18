@@ -40,7 +40,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   )
 
   useEffect(() => {
-    const options: Option<T>[] = ([...items] ?? []).map((item) => ({
+    const options: Option<T>[] = [...items].map((item) => ({
       label: item[labelKey],
       value: item[valueKey],
       data: item,
