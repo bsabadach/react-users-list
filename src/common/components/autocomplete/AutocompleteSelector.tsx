@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-type Option<T> = {
-  label: 'label' | keyof T
-  value: 'value' | keyof T
+export type Option<T extends Record<string, string>> = {
+  label: keyof T
+  value: keyof T
   data: T
 }
 export type AutoCompleteSelectorProps<T extends Record<string, string>> = {
