@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 export type Option<T extends Record<string, string>> = {
-  label: keyof T
-  value: keyof T
+  label: 'label' | keyof T
+  value: 'value' | keyof T
   data: T
 }
 export type AutoCompleteSelectorProps<T extends Record<string, string>> = {
@@ -40,7 +40,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   )
 
   useEffect(() => {
-    const options: Option<T>[] = [...items].map((item) => ({
+    const options: Option<T>[] = ([...items] ?? []).map((item) => ({
       label: item[labelKey],
       value: item[valueKey],
       data: item,
