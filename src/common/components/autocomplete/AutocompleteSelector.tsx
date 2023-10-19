@@ -34,8 +34,8 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   const createOptions = useCallback(
     (items: T[]) => {
       return [...(items ?? [])].map((item) => ({
-        label: item[labelKey as keyof T],
-        value: item[valueKey as keyof T],
+        label: item[labelKey],
+        value: item[valueKey],
         data: item,
       }))
     },
