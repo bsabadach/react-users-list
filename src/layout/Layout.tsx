@@ -1,51 +1,31 @@
-import * as React from "react";
-import { memo } from "react";
+import * as React from 'react'
+import { memo } from 'react'
 
-import cx from "classnames";
-import styles from "./layout.module.css";
-import { Outlet, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../auth/AuthProvider";
+import cx from 'classnames'
+import styles from './layout.module.css'
+import { Link, Outlet } from 'react-router-dom'
+import { useAuthContext } from '../auth/AuthProvider'
 
-type ActionType = "login" | "logout";
 const Layout = () => {
-  const { logout, login, isAuthenticated } = useAuthContext();
-  const navigate = useNavigate();
-  const handleButtonClicked = (name: ActionType) => () => {
-    if (name === "logout") {
-      logout();
-      navigate("/");
-      return;
-    }
-    login();
-    navigate("/users");
-  };
+  const { logout, isAuthenticated } = useAuthContext()
 
   return (
-    <>
+    <div className={'relative min-h-[100svh]'}>
       <nav
         className={cx(
           styles.nav,
-          "mb-8 flex h-32 items-center justify-between overflow-hidden font-sans",
+          'mb-8 flex h-32 items-center justify-between overflow-hidden font-sans bg-white'
         )}
       >
-        <div className="container mx-auto ">
+        <div className="container mx-auto flex flex-col">
           <div className="flex flex-row items-center justify-between">
-            <h1 className={styles.title}>USERS LIST APPLICATION</h1>
-            {!isAuthenticated && (
-              <button
-                data-testid="login-button"
-                onClick={handleButtonClicked("login")}
-                className="shadow h-full w-1/4 border px-8 text-xl"
-              >
-                <span className={styles.authAction} data-testid="login-text">
-                  Login
-                </span>
-              </button>
-            )}
+            <Link to="/">
+              <h1 className={styles.title}>USERS LIST APPLICATION DEMO</h1>
+            </Link>
             {isAuthenticated && (
               <button
-                onClick={handleButtonClicked("logout")}
-                className="h-full w-1/4 border px-8 text-xl shadow"
+                onClick={logout}
+                className="h-8 w-1/5 border px-8 text-xl shadow rounded-lg"
               >
                 <span className={styles.authAction} data-testid="logout-text">
                   Logout
@@ -53,28 +33,21 @@ const Layout = () => {
               </button>
             )}
           </div>
+          <div className="text-sm text-gray-400">
+            <a
+              href="https://prismatic-tarsier-d6698c.netlify.app"
+              target="_blank"
+            >
+              see storybook &gt;&gt;
+            </a>
+          </div>
         </div>
       </nav>
       <main>
         <Outlet />
-        {!isAuthenticated && (
-          <div className="container mx-auto rounded py-8 shadow">
-            <h1 className="w-full text-center text-2xl">
-              User list demo application with fake authentication
-            </h1>
-            <div className="w-full text-right text-blue-600 pr-8">
-              <a
-                href="https://master--prismatic-tarsier-d6698c.netlify.app/"
-                target="_blank"
-              >
-                see storybook &gt;&gt;
-              </a>
-            </div>
-          </div>
-        )}
       </main>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default memo(Layout);
+export default memo(Layout)

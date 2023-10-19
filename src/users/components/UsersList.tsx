@@ -1,22 +1,25 @@
-import * as React from "react";
-import cx from "classnames";
+import * as React from 'react'
+import cx from 'classnames'
 
-import UserCard from "./UserCard";
+import UserCard from './UserCard'
 
-import styles from "./user.module.css";
-import { User } from "../model/user";
-import { memo } from "react";
+import styles from './user.module.css'
+import { User } from '../model/user'
+import { memo } from 'react'
 
 interface Props {
-  onSelectUser: (id: string) => void;
-  users: Partial<User>[];
+  onSelectUser: (id: string) => void
+  users: Partial<User>[]
 }
 
 const UsersList = ({ users, onSelectUser }: Props) => {
   return (
     <section
       data-testid="users-list"
-      className={cx("relative w-full bg-white", styles.usersList)}
+      className={cx(
+        'relative w-full bg-white py-12 rounded-lg',
+        styles.usersList
+      )}
     >
       <div className="flex flex-wrap items-center justify-center gap-6">
         {users.map((user) => (
@@ -24,7 +27,7 @@ const UsersList = ({ users, onSelectUser }: Props) => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default memo(UsersList);
+export default memo(UsersList)

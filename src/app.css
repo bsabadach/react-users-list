@@ -20,4 +20,5 @@ body {
   font-family: 'Inter', sans-serif !important;
   color: gray !important;
   position: relative;
+  background-color: rgba(0, 0, 0, 0.05);
 }

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import useClickOutside from '../../hooks/useClickOutside'
 
 export type Option<T extends Record<string, string>> = {
   label: keyof T
@@ -7,19 +8,21 @@ export type Option<T extends Record<string, string>> = {
 }
 export type AutoCompleteSelectorProps<T extends Record<string, string>> = {
   items: T[]
-  onSelect: (data: T) => void
-  onReset: () => void
+  onInput?: (value: string) => void
+  onSelect?: (data: T) => void
+  onReset?: () => void
   labelKey?: keyof T
   valueKey?: keyof T
   maxHeight?: number
 }
 
 const AutoCompleteSelector = <T extends Record<string, string>>({
-  items,
+  items = [],
   labelKey = 'label' as keyof T,
   valueKey = 'value' as keyof T,
-  onSelect,
-  onReset,
+  onInput = () => {},
+  onSelect = () => {},
+  onReset = () => {},
   maxHeight = 300,
 }: AutoCompleteSelectorProps<T>) => {
   const [inputValue, setInputValue] = useState('')
@@ -27,6 +30,17 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   const [options, setOptions] = useState<Option<T>[]>([])
   const [displayedOptions, setDisplayedOptions] = useState<Option<T>[]>([])
   const wrapperRef = useRef<HTMLDivElement>(null)
+
+  const createOptions = useCallback(
+    (items: T[]) => {
+      return [...(items ?? [])].map((item) => ({
+        label: item[labelKey as keyof T],
+        value: item[valueKey as keyof T],
+        data: item,
+      }))
+    },
+    [items]
+  )
 
   const filterOptions = useCallback(
     (value: string) => {
@@ -40,31 +54,12 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   )
 
   useEffect(() => {
-    const options: Option<T>[] = [...items].map((item) => ({
-      label: item[labelKey],
-      value: item[valueKey],
-      data: item,
-    }))
-    setOptions(options)
+    setOptions(createOptions([...items]))
   }, [items])
 
   useEffect(() => {
     setDisplayedOptions([...options])
   }, [options])
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        wrapperRef.current &&
-        !wrapperRef.current.contains(event.target as Node)
-      ) {
-        setShowOptions(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
 
   const handleInputClicked = () => {
     setShowOptions(true)
@@ -73,14 +68,11 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim()
     setInputValue(value)
-    if (!value) {
-      setDisplayedOptions([...options])
-      setShowOptions(true)
-      return
-    }
-
-    setDisplayedOptions(filterOptions(e.target.value))
-    setShowOptions(true)
+    const displayedOptions = value
+      ? filterOptions(e.target.value)
+      : [...options]
+    setDisplayedOptions(displayedOptions)
+    onInput(value)
   }
 
   const handleOptionSelect = (option: Option<T>) => () => {
@@ -95,6 +87,10 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
     setShowOptions(false)
     onReset()
   }
+
+  useClickOutside(wrapperRef, () => {
+    setShowOptions(false)
+  })
 
   return (
     <div className="flex min-h-[50px] w-full flex-col items-center justify-center">
