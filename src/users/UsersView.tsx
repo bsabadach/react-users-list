@@ -11,34 +11,39 @@ import AutocompleteSelector from '../common/components/autocomplete/Autocomplete
 export const UsersView: FC = () => {
   const { open } = useModalContext()
   const { useLoadAll, filterUsers } = useUsers()
-  const [users, setUsers] = useState<SimpleUser[]>([])
+  const [displayedUsers, setDisplayedUsers] = useState<SimpleUser[]>([])
   const seeMoreUserId = useRef('')
 
-  const { data, isLoading, isSuccess } = useLoadAll()
+  const { data: users, isLoading, isSuccess } = useLoadAll()
 
   useEffect(() => {
-    setUsers(data)
-  }, [isSuccess, data])
+    setDisplayedUsers([...(users ?? [])])
+  }, [users, isSuccess])
 
-  const handleSelectUser = (userId: string) => {
+  const handleSeeMoreOfUser = (userId: string) => {
     seeMoreUserId.current = userId
     open()
   }
 
-  const handleSelectOption = (user: Partial<User>) => {
-    setUsers(filterUsers(data, user.firstName))
+  const handleSelectAutocompleteOption = (user: Partial<User>) => {
+    setDisplayedUsers(filterUsers(users, user.firstName))
+  }
+
+  const handleAutocompleteInputChanged = (value: string) => {
+    setDisplayedUsers(filterUsers(users, value))
   }
 
   const handleOnReset = () => {
-    setUsers(data)
+    setDisplayedUsers(users)
   }
 
   return (
-    <div className="container relative mx-auto flex flex-col items-end">
+    <div className="container relative mx-auto flex flex-col items-end mb-16">
       <div className={'mb-8 w-64'}>
         <AutocompleteSelector<SimpleUser>
-          items={users ?? []}
-          onSelect={handleSelectOption}
+          items={users}
+          onInput={handleAutocompleteInputChanged}
+          onSelect={handleSelectAutocompleteOption}
           onReset={handleOnReset}
           labelKey={'firstName'}
           valueKey={'id'}
@@ -47,8 +52,8 @@ export const UsersView: FC = () => {
       </div>
       <BlockUI when={isLoading}>
         <UsersList
-          onSelectUser={handleSelectUser}
-          users={filterUsers((users ?? []) as User[])}
+          onSelectUser={handleSeeMoreOfUser}
+          users={displayedUsers ?? []}
         />
       </BlockUI>
       <UsersModal selectedUserId={seeMoreUserId.current} />
