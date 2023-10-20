@@ -1,9 +1,9 @@
-import * as React from "react";
-import { FC, PropsWithChildren } from "react";
+import * as React from 'react'
+import { FC, PropsWithChildren } from 'react'
 
-import cx from "classnames";
+import cx from 'classnames'
 
-import styles from "./modal.module.css";
+import styles from './modal.module.css'
 
 export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
   children,
@@ -12,8 +12,8 @@ export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
   return (
     <div
       className={cx(
-        "max-h-full max-w-full rounded bg-white p-4 shadow",
-        styles.modalWrapper,
+        'max-h-full max-w-full rounded bg-white p-4 shadow',
+        styles.modalWrapper
       )}
       data-testid="modal-wrapper"
     >
@@ -26,5 +26,5 @@ export const Modal: FC<PropsWithChildren<{ close: () => void }>> = ({
       </div>
       <div className={styles.modalWrapper}>{children}</div>
     </div>
-  );
-};
+  )
+}

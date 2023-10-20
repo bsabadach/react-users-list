@@ -39,7 +39,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
         data: item,
       }))
     },
-    [items]
+    [items, labelKey, valueKey]
   )
 
   const filterOptions = useCallback(
@@ -55,7 +55,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
 
   useEffect(() => {
     setOptions(createOptions([...(items ?? [])]))
-  }, [items])
+  }, [items, createOptions])
 
   useEffect(() => {
     setDisplayedOptions([...options])
