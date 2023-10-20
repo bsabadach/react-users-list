@@ -1,14 +1,14 @@
 import * as React from 'react'
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, memo, useEffect, useRef, useState } from 'react'
 import UsersList from './components/UsersList'
-import { UsersModal } from './components/UsersModal'
+import UsersModal from './components/UsersModal'
 import { useModalContext } from '../common/components/modal/ModalContext'
 import { useUsers } from './model/useUser'
-import { BlockUI } from '../common/components/uiblocker/BlockUI'
+import BlockUI from '../common/components/uiblocker/BlockUI'
 import { SimpleUser, User } from './model/user'
 import AutocompleteSelector from '../common/components/autocomplete/AutocompleteSelector'
 
-export const UsersView: FC = () => {
+const UsersView: FC = () => {
   const { open } = useModalContext()
   const { useLoadAll, filterUsers } = useUsers()
   const [displayedUsers, setDisplayedUsers] = useState<SimpleUser[]>([])
@@ -56,7 +56,11 @@ export const UsersView: FC = () => {
           users={displayedUsers ?? []}
         />
       </BlockUI>
-      <UsersModal selectedUserId={seeMoreUserId.current} />
+      {seeMoreUserId.current && (
+        <UsersModal selectedUserId={seeMoreUserId.current} />
+      )}
     </div>
   )
 }
+
+export default memo(UsersView)

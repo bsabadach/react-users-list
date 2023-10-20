@@ -17,7 +17,7 @@ export type AutoCompleteSelectorProps<T extends Record<string, string>> = {
 }
 
 const AutoCompleteSelector = <T extends Record<string, string>>({
-  items = [],
+  items,
   labelKey = 'label' as keyof T,
   valueKey = 'value' as keyof T,
   onInput = () => {},
@@ -33,7 +33,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
 
   const createOptions = useCallback(
     (items: T[]) => {
-      return [...(items ?? [])].map((item) => ({
+      return items.map((item) => ({
         label: item[labelKey],
         value: item[valueKey],
         data: item,
@@ -54,7 +54,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   )
 
   useEffect(() => {
-    setOptions(createOptions([...items]))
+    setOptions(createOptions([...(items ?? [])]))
   }, [items])
 
   useEffect(() => {

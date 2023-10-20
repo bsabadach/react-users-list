@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../auth/AuthProvider'
 import styles from '../layout/layout.module.css'
 
-const Home = () => {
+const HomeView = () => {
   const { login, isAuthenticated } = useAuthContext()
   const navigate = useNavigate()
   const handleButtonClicked = () => {
@@ -33,4 +33,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomeView
