@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { format, toDate } from 'date-fns'
 
 import { User } from '../model/user'
-import { BlockUI } from '../../common/components/uiblocker/BlockUI'
+import BlockUI from '../../common/components/uiblocker/BlockUI'
 import { QueryStatus } from '@tanstack/react-query'
 
 import styles from './user.module.css'
