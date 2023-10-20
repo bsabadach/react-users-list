@@ -13,7 +13,7 @@ const useClickOutside = (
         callbackOnClickOutSide()
       }
     },
-    [wrapperRef]
+    [wrapperRef, callbackOnClickOutSide]
   )
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const useClickOutside = (
       passive: true,
     })
     return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [wrapperRef])
+  }, [wrapperRef, handleClickOutside])
 }
 
 export default useClickOutside
