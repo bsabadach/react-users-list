@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom'
 
 import { Modal } from './Modal'
 import { useModalContext } from './ModalContext'
+
 import styles from './modal.module.css'
 
 const overlayWrapper = document.querySelector('#overlay')

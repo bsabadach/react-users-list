@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuthContext } from '@/auth/AuthProvider'
+
 import styles from '@/layout/layout.module.css'
+
+import { useAuthContext } from '@/auth/AuthProvider'
 
 const HomeView = () => {
   const { login, isAuthenticated } = useAuthContext()

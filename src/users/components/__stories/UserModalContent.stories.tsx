@@ -1,6 +1,8 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
+
 import { UsersModalContent } from '../UsersModalContent'
+
 import { Modal } from '@/common/components/modal/Modal'
 
 const user = {

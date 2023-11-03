@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { memo, useCallback, useState } from 'react'
 import cx from 'classnames'
-import { User } from '@/users/model/User'
+
 import styles from './user.module.css'
+
+import { User } from '@/users/model/User'
 
 export type Props = {
   user: Partial<User>
