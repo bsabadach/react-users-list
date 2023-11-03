@@ -1,6 +1,7 @@
-import * as React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
+
+import * as React from 'react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 const mockOpen = jest.fn()
 
@@ -21,8 +22,8 @@ jest.mock('@tanstack/react-query', () => ({
   }),
 }))
 
-import UsersView from '../UsersView'
 import { SimpleUser } from '../model/User'
+import UsersView from '../UsersView'
 
 describe('UsersView Component', () => {
   it('renders UsersList when data is successfully fetched', () => {

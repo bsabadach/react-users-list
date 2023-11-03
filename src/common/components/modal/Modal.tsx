@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { FC, PropsWithChildren } from 'react'
-
 import cx from 'classnames'
 
 import styles from './modal.module.css'

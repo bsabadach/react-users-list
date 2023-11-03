@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+
 import useClickOutside from '@/common/hooks/useClickOutside'
 
 export type Option<T extends Record<string, string>> = {

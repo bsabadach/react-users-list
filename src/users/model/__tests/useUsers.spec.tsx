@@ -1,11 +1,12 @@
-import * as React from 'react'
-
-import { act, render, renderHook, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { QueryObserverResult } from '@tanstack/react-query'
 
-import { useUsers } from '../useUser'
+import * as React from 'react'
+import { QueryObserverResult } from '@tanstack/react-query'
+import { act, render, renderHook, waitFor } from '@testing-library/react'
+
 import { SimpleUser, User } from '../User'
+import { useUsers } from '../useUser'
+
 import makeWithQueryClientProvider from '@@/test-utils/WithQueryClient'
 
 const mockUsers = [

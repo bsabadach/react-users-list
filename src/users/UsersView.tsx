@@ -1,12 +1,14 @@
 import * as React from 'react'
 import { FC, useCallback, useEffect, useRef, useState } from 'react'
+
 import UsersList from './components/UsersList'
 import UsersModal from './components/UsersModal'
-import { useModalContext } from '@/common/components/modal/ModalContext'
-import { useUsers } from './model/useUser'
-import BlockUI from '@/common/components/uiblocker/BlockUI'
 import { SimpleUser, User } from './model/User'
+import { useUsers } from './model/useUser'
+
 import AutocompleteSelector from '@/common/components/autocomplete/AutocompleteSelector'
+import { useModalContext } from '@/common/components/modal/ModalContext'
+import BlockUI from '@/common/components/uiblocker/BlockUI'
 
 const UsersView: FC = () => {
   const { open } = useModalContext()
@@ -25,21 +27,21 @@ const UsersView: FC = () => {
       seeMoreUserId.current = userId
       open()
     },
-    [seeMoreUserId.current, open]
+    [open]
   )
 
   const handleSelectAutocompleteOption = useCallback(
     (user: Partial<User>) => {
       setDisplayedUsers(filterUsers(users, user.firstName))
     },
-    [users]
+    [users, filterUsers]
   )
 
   const handleAutocompleteInputChanged = useCallback(
     (value: string) => {
       setDisplayedUsers(filterUsers(users, value))
     },
-    [users]
+    [users, filterUsers]
   )
 
   const handleOnReset = useCallback(() => {

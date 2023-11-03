@@ -2,8 +2,8 @@ import * as React from 'react'
 import { FC, PropsWithChildren } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-import { ModalProvider } from './common/components/modal/ModalContext'
 import { AuthProvider } from './auth/AuthProvider'
+import { ModalProvider } from './common/components/modal/ModalContext'
 
 const queryClient = new QueryClient()
 const AppContext: FC<PropsWithChildren> = ({ children }) => (

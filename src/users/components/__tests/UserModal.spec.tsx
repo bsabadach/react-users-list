@@ -1,10 +1,12 @@
+import '@testing-library/jest-dom'
+
 import * as React from 'react'
 import { render } from '@testing-library/react'
-import '@testing-library/jest-dom'
 
 // must be done before important the component
 document.body.innerHTML = '<div id="overlay"></div>'
 import UsersModal from '../UsersModal'
+
 import mockUser from '@@/integration/fixtures/mockUserResponse.json'
 
 jest.mock('@/users/model/useUser', () => ({

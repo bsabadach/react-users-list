@@ -1,6 +1,7 @@
 import React from 'react'
-import { useAuthContext } from './AuthProvider'
 import { useNavigate } from 'react-router-dom'
+
+import { useAuthContext } from './AuthProvider'
 
 export const Login = () => {
   const { login } = useAuthContext()

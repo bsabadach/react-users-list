@@ -1,6 +1,8 @@
 import React from 'react'
-import AppContext from './AppContext'
+
 import Layout from './layout/Layout'
+import AppContext from './AppContext'
+
 import './app.css'
 
 export const App = () => (

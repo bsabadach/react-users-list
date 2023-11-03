@@ -1,11 +1,12 @@
 import * as React from 'react'
+import { memo } from 'react'
 import cx from 'classnames'
+
+import { User } from '../model/User'
 
 import UserCard from './UserCard'
 
 import styles from './user.module.css'
-import { User } from '../model/User'
-import { memo } from 'react'
 
 interface Props {
   onSelectUser: (id: string) => void

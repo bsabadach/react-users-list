@@ -1,8 +1,9 @@
 import * as React from 'react'
-
 import cx from 'classnames'
-import styles from './layout.module.css'
 import { Link, Outlet } from 'react-router-dom'
+
+import styles from './layout.module.css'
+
 import { useAuthContext } from '@/auth/AuthProvider'
 
 const Layout = () => {
