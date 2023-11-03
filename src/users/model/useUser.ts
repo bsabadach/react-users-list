@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { usersResource } from '../resource/usersResource'
-import { SimpleUser, User } from './user'
-import { Option } from '../../common/components/autocomplete/AutocompleteSelector'
+import { usersResource } from '@/users/resource/usersResource'
+import { SimpleUser, User } from './User'
+import { Option } from '@/common/components/autocomplete/AutocompleteSelector'
 
 export const useUsers = () => {
   const useLoadById = (selectedUserId: string) => {

@@ -4,7 +4,7 @@ import cx from 'classnames'
 import UserCard from './UserCard'
 
 import styles from './user.module.css'
-import { User } from '../model/user'
+import { User } from '../model/User'
 import { memo } from 'react'
 
 interface Props {

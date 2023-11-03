@@ -2,9 +2,8 @@ import * as React from 'react'
 import { FC } from 'react'
 import { format, toDate } from 'date-fns'
 
-import { User } from '../model/user'
+import { User } from '../model/User'
 import BlockUI from '../../common/components/uiblocker/BlockUI'
-import { QueryStatus } from '@tanstack/react-query'
 
 import styles from './user.module.css'
 import cx from 'classnames'
@@ -16,7 +15,7 @@ const formatDate = (input: string | undefined) => {
 
 type Props = {
   user: User | undefined
-  fetchStatus: QueryStatus
+  fetchStatus: 'loading' | 'error' | 'success'
 }
 
 export const UsersModalContent: FC<Props> = ({ fetchStatus, user }) => (

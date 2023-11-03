@@ -5,15 +5,15 @@ import '@testing-library/jest-dom'
 // must be done before important the component
 document.body.innerHTML = '<div id="overlay"></div>'
 import UsersModal from '../UsersModal'
-import mockUser from './../../../../integration/fixtures/mockUserResponse.json'
+import mockUser from '@@/integration/fixtures/mockUserResponse.json'
 
-jest.mock('../../model/useUser', () => ({
+jest.mock('@/users/model/useUser', () => ({
   useUsers: () => ({
     useLoadById: jest.fn(() => ({ data: mockUser, status: 'success' })),
   }),
 }))
 
-jest.mock('../../../common/components/modal/ModalContext', () => ({
+jest.mock('@/common/components/modal/ModalContext', () => ({
   useModalContext: () => ({
     isOpened: true,
     close: () => {},

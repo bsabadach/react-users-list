@@ -1,35 +1,48 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
-    "jsx": "react",
-    "moduleResolution": "node",
-    "target": "es2022",
-    "sourceMap": true,
-    "lib": [
-      "esnext",
-      "dom"
-    ],
-    "module": "ES2022",
-    "esModuleInterop": true,
-    "strict": true,
-    "declaration": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "outDir": "build",
-    "noEmitOnError": true,
-    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "resolveJsonModule":true,
     "types": [
       "vite/client",
       "@testing-library/jest-dom"
-    ]
+    ],
+    "paths": {
+      "@@/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@/auth/*": [
+        "./src/auth/*"
+      ],
+      "@/common/*": [
+        "./src/common/*"
+      ],
+      "@/users/*": [
+        "./src/users/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
+      ]
+    }
   },
   "include": [
-    "./src/**/*",
+    "src",
     "./typings/global.d.ts",
     "./jest-setup.ts",
     "./jest.config.ts",
@@ -44,6 +57,6 @@
   "exclude": [
     "./dist",
     "./build",
-    "./node_modules",
+    "./node_modules"
   ]
 }

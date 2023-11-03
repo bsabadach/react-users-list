@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { FC, memo, useEffect, useRef, useState } from 'react'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import UsersList from './components/UsersList'
 import UsersModal from './components/UsersModal'
-import { useModalContext } from '../common/components/modal/ModalContext'
+import { useModalContext } from '@/common/components/modal/ModalContext'
 import { useUsers } from './model/useUser'
-import BlockUI from '../common/components/uiblocker/BlockUI'
-import { SimpleUser, User } from './model/user'
-import AutocompleteSelector from '../common/components/autocomplete/AutocompleteSelector'
+import BlockUI from '@/common/components/uiblocker/BlockUI'
+import { SimpleUser, User } from './model/User'
+import AutocompleteSelector from '@/common/components/autocomplete/AutocompleteSelector'
 
 const UsersView: FC = () => {
   const { open } = useModalContext()
@@ -20,22 +20,31 @@ const UsersView: FC = () => {
     setDisplayedUsers([...(users ?? [])])
   }, [users, isSuccess])
 
-  const handleSeeMoreOfUser = (userId: string) => {
-    seeMoreUserId.current = userId
-    open()
-  }
+  const handleSeeMoreOfUser = useCallback(
+    (userId: string) => {
+      seeMoreUserId.current = userId
+      open()
+    },
+    [seeMoreUserId.current, open]
+  )
 
-  const handleSelectAutocompleteOption = (user: Partial<User>) => {
-    setDisplayedUsers(filterUsers(users, user.firstName))
-  }
+  const handleSelectAutocompleteOption = useCallback(
+    (user: Partial<User>) => {
+      setDisplayedUsers(filterUsers(users, user.firstName))
+    },
+    [users]
+  )
 
-  const handleAutocompleteInputChanged = (value: string) => {
-    setDisplayedUsers(filterUsers(users, value))
-  }
+  const handleAutocompleteInputChanged = useCallback(
+    (value: string) => {
+      setDisplayedUsers(filterUsers(users, value))
+    },
+    [users]
+  )
 
-  const handleOnReset = () => {
+  const handleOnReset = useCallback(() => {
     setDisplayedUsers(users)
-  }
+  }, [users])
 
   return (
     <div className="container relative mx-auto flex flex-col items-end mb-16">
@@ -63,4 +72,4 @@ const UsersView: FC = () => {
   )
 }
 
-export default memo(UsersView)
+export default UsersView

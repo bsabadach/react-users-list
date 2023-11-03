@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 
 const mockOpen = jest.fn()
 
-jest.mock('../../common/components/modal/ModalContext', () => ({
+jest.mock('@/common/components/modal/ModalContext', () => ({
   useModalContext: () => ({
     open: mockOpen,
   }),
@@ -22,7 +22,7 @@ jest.mock('@tanstack/react-query', () => ({
 }))
 
 import UsersView from '../UsersView'
-import { SimpleUser } from '../model/user'
+import { SimpleUser } from '../model/User'
 
 describe('UsersView Component', () => {
   it('renders UsersList when data is successfully fetched', () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { UsersModalContent } from '../UsersModalContent'
-import { Modal } from '../../../common/components/modal/Modal'
+import { Modal } from '@/common/components/modal/Modal'
 
 const user = {
   id: '60d0fe4f5311236168a109cb',
@@ -41,7 +41,7 @@ export const UserModalStory: Story = {
   render: ({ fetchStatus, user }) => {
     return (
       <>
-        <h1>Open right side panel and change the fetchStatus</h1>
+        <h1>Open control side panel and change the fetchStatus</h1>
         <div className="w-[650px] overflow-x-hidden">
           <Modal close={() => alert('Close Modal called')}>
             <UsersModalContent fetchStatus={fetchStatus} user={user} />

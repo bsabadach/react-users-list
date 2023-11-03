@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { memo } from 'react'
 
 import cx from 'classnames'
 import styles from './layout.module.css'
 import { Link, Outlet } from 'react-router-dom'
-import { useAuthContext } from '../auth/AuthProvider'
+import { useAuthContext } from '@/auth/AuthProvider'
 
 const Layout = () => {
   const { logout, isAuthenticated } = useAuthContext()
@@ -50,4 +49,4 @@ const Layout = () => {
   )
 }
 
-export default memo(Layout)
+export default Layout

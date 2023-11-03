@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import cx from 'classnames'
-import { User } from '../model/user'
+import { User } from '@/users/model/User'
 import styles from './user.module.css'
 
 export type Props = {
@@ -11,7 +11,6 @@ export type Props = {
 
 const UserCard = ({ user, onSelectUser }: Props) => {
   const [imageLoaded, setImageLoaded] = useState(false)
-
   const handleSelectUser = useCallback(() => {
     onSelectUser(user.id ?? '')
   }, [user, onSelectUser])
@@ -27,7 +26,7 @@ const UserCard = ({ user, onSelectUser }: Props) => {
         styles.userCard
       )}
     >
-      <div className="hover:shadow-raised relative transform overflow-hidden rounded-lg bg-white shadow-xl transition duration-200 hover:-translate-y-2">
+      <div className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition duration-200 hover:shadow-raised  hover:-translate-y-2">
         <div
           className={cx(styles.userImagePlaceholder, {
             [styles.loaded]: imageLoaded,
@@ -72,4 +71,4 @@ const UserCard = ({ user, onSelectUser }: Props) => {
   )
 }
 
-export default UserCard
+export default memo(UserCard)

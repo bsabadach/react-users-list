@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { FC, memo } from 'react'
 
-import { Overlay } from '../../common/components/modal'
+import { Overlay } from '@/common/components/modal'
 import { UsersModalContent } from './UsersModalContent'
-import { useUsers } from '../model/useUser'
+import { useUsers } from '@/users/model/useUser'
 
 type Props = {
   selectedUserId: string

@@ -26,7 +26,7 @@
 .user-image-placeholder {
   display: block;
   width: 100%;
-  min-height: 235px;
+  height: 235px;
   position: relative;
   top: 0;
   left: 0;
@@ -58,6 +58,7 @@
 
 .user-image.ready {
   display: block;
+  height: 235px;
 }
 
 .detail-Wrapper {

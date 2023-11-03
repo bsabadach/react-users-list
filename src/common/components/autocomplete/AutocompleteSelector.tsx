@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import useClickOutside from '../../hooks/useClickOutside'
+import useClickOutside from '@/common/hooks/useClickOutside'
 
 export type Option<T extends Record<string, string>> = {
   label: keyof T
@@ -30,6 +30,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
   const [options, setOptions] = useState<Option<T>[]>([])
   const [displayedOptions, setDisplayedOptions] = useState<Option<T>[]>([])
   const wrapperRef = useRef<HTMLDivElement>(null)
+  const optionsListRef = useRef<HTMLDivElement>(null)
 
   const createOptions = useCallback(
     (items: T[]) => {
@@ -39,7 +40,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
         data: item,
       }))
     },
-    [items, labelKey, valueKey]
+    [labelKey, valueKey]
   )
 
   const filterOptions = useCallback(
@@ -127,11 +128,13 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
           </button>
           {showOptions && (
             <div
+              ref={optionsListRef}
               style={{ maxHeight }}
               className="absolute z-10 mt-1 w-full overflow-y-scroll rounded-lg border border-gray-300 bg-white shadow-lg"
             >
               {displayedOptions?.map((option) => (
                 <div
+                  tabIndex={0}
                   key={option.value as string}
                   className="cursor-pointer px-4 py-2 hover:bg-gray-100"
                   onClick={handleOptionSelect(option as Option<T>)}

@@ -5,8 +5,8 @@ import '@testing-library/jest-dom'
 import { QueryObserverResult } from '@tanstack/react-query'
 
 import { useUsers } from '../useUser'
-import { SimpleUser, User } from '../user'
-import makeWithQueryClientProvider from '../../../../test-utils/WithQueryClient'
+import { SimpleUser, User } from '../User'
+import makeWithQueryClientProvider from '@@/test-utils/WithQueryClient'
 
 const mockUsers = [
   { id: '1', name: 'User 1' },
