@@ -28,5 +28,6 @@ export const WithImage = () => (
 
 export default {
   title: 'UserCard',
+  tags: ['autodocs'],
   component: UserCard,
 }

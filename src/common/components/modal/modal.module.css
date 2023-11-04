@@ -16,7 +16,7 @@
 .modal-wrapper {
   width: auto;
   height: auto;
-  min-width: 650px;
-  min-height: 300px;
+  max-width: 600px;
+  max-height: 300px;
   padding: 8px;
 }
