@@ -27,6 +27,7 @@ const user = {
 
 const meta = {
   component: UsersModalContent,
+  tags: ['autodocs'],
   argTypes: {
     fetchStatus: {
       options: ['loading', 'success'],
@@ -42,14 +43,9 @@ type Story = StoryObj<typeof meta>
 export const UserModalStory: Story = {
   render: ({ fetchStatus, user }) => {
     return (
-      <>
-        <h1>Open control side panel and change the fetchStatus</h1>
-        <div className="w-[650px] overflow-x-hidden">
-          <Modal close={() => alert('Close Modal called')}>
-            <UsersModalContent fetchStatus={fetchStatus} user={user} />
-          </Modal>
-        </div>
-      </>
+      <Modal close={() => alert('Close Modal called')}>
+        <UsersModalContent fetchStatus={fetchStatus} user={user} />
+      </Modal>
     )
   },
   args: {

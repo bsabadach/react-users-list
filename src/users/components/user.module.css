@@ -1,8 +1,8 @@
 .user-modal-wrapper {
-  width: 650px;
-  height: 300px;
-  min-width: 650px;
-  min-height: 300px;
+  width: auto;
+  height: auto;
+  max-width: 650px;
+  max-height: 300px;
 }
 
 .user-modal-content {

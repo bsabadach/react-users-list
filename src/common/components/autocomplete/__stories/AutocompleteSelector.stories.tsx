@@ -17,5 +17,6 @@ export const Default = () => (
 
 export default {
   title: 'AutocompleteSelector',
+  tags: ['autodocs'],
   component: AutocompleteSelector,
 }
