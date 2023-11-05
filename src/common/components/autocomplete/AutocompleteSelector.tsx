@@ -138,7 +138,7 @@ const AutoCompleteSelector = <T extends Record<string, string>>({
                   tabIndex={0}
                   key={option.value as string}
                   className="cursor-pointer px-4 py-2 hover:bg-gray-100"
-                  onClick={handleOptionSelect(option as Option<T>)}
+                  onClick={handleOptionSelect(option)}
                 >
                   {option.label as string}
                 </div>

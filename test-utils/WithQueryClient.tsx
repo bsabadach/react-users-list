@@ -1,7 +1,7 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { FC, PropsWithChildren } from 'react'
 import * as React from 'react'
-import { beforeEach, afterEach } from '@jest/globals'
+import { FC, PropsWithChildren } from 'react'
+import { afterEach, beforeEach } from '@jest/globals'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export default () => {
   let queryClient: QueryClient

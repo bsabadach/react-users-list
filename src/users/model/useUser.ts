@@ -18,7 +18,7 @@ export const useUsers = () => {
 
   const usersAsOptions = (users: SimpleUser[]) => {
     return users
-      ?.map((user: SimpleUser) => ({
+      ?.map((user) => ({
         label: user.firstName as keyof SimpleUser,
         value: user.id as keyof SimpleUser,
         data: user,

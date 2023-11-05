@@ -3,10 +3,10 @@ import { FC } from 'react'
 import cx from 'classnames'
 import { format, toDate } from 'date-fns'
 
-import BlockUI from '../../common/components/uiblocker/BlockUI'
-import { User } from '../model/User'
-
 import styles from './user.module.css'
+
+import BlockUI from '@/common/components/uiblocker/BlockUI'
+import { User } from '@/users/model/User'
 
 const formatDate = (input: string | undefined) => {
   if (!input) return ''

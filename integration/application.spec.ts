@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
-import mockUsersResponse from './fixtures/mockUsersResponse.json'
+
 import mockUserResponse from './fixtures/mockUserResponse.json'
+import mockUsersResponse from './fixtures/mockUsersResponse.json'
 
 test.beforeEach(async ({ page }) => {
   await page.route('https://dummyapi.io/data/v1/user', (route) =>
