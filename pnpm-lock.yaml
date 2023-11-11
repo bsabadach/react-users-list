@@ -89,8 +89,8 @@ devDependencies:
     specifier: ^18.18.8
     version: 18.18.8
   '@types/react-test-renderer':
-    specifier: 18.0.3
-    version: 18.0.3
+    specifier: 18.0.6
+    version: 18.0.6
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.9.1
     version: 6.9.1(@typescript-eslint/parser@6.9.1)(eslint@8.52.0)(typescript@5.2.2)
@@ -4327,8 +4327,8 @@ packages:
     dependencies:
       '@types/react': 18.2.34
 
-  /@types/react-test-renderer@18.0.3:
-    resolution: {integrity: sha512-4wcNLnY6nIT+L6g94CpzL4CXX2P18JvKPU9CDlaHr3DnbP3GiaQLhDotJqjWlVqOcE4UhLRjp0MtxqwuNKONnA==}
+  /@types/react-test-renderer@18.0.6:
+    resolution: {integrity: sha512-O2JT1J3/v/NaYHYmPf2DXBSqUGmp6iwhFPicES6Pc1Y90B9Qgu99mmaBGqfZFpVuXLzF/pNJB4K9ySL3iqFeXA==}
     dependencies:
       '@types/react': 18.2.34
     dev: true
