@@ -143,8 +143,8 @@ devDependencies:
     specifier: 10.0.0
     version: 10.0.0(eslint@8.52.0)
   eslint-plugin-storybook:
-    specifier: ^0.6.15
-    version: 0.6.15(eslint@8.52.0)(typescript@5.2.2)
+    specifier: ^0.8.0
+    version: 0.8.0(eslint@8.52.0)(typescript@5.2.2)
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -6892,9 +6892,9 @@ packages:
       eslint: 8.52.0
     dev: true
 
-  /eslint-plugin-storybook@0.6.15(eslint@8.52.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-lAGqVAJGob47Griu29KXYowI4G7KwMoJDOkEip8ujikuDLxU+oWJ1l0WL6F2oDO4QiyUFXvtDkEkISMOPzo+7w==}
-    engines: {node: 12.x || 14.x || >= 16}
+  /eslint-plugin-storybook@0.8.0(eslint@8.52.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-CZeVO5EzmPY7qghO2t64oaFM+8FTaD4uzOEjHKp516exyTKo+skKAL9GI3QALS2BXhyALJjNtwbmr1XinGE8bA==}
+    engines: {node: '>= 18'}
     peerDependencies:
       eslint: '>=6'
     dependencies:
@@ -7685,11 +7685,6 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       has-symbols: 1.0.3
-    dev: true
-
-  /has@1.0.4:
-    resolution: {integrity: sha512-qdSAmqLF6209RFj4VVItywPMbm3vWylknmB3nvNiUIs72xAimcM8nVYxYr7ncvZq5qzk9MKIZR8ijqD/1QuYjQ==}
-    engines: {node: '>= 0.4.0'}
     dev: true
 
   /hasown@2.0.0:
