@@ -89,8 +89,8 @@ devDependencies:
     specifier: ^20.0.0
     version: 20.9.0
   '@types/react-test-renderer':
-    specifier: 18.0.6
-    version: 18.0.6
+    specifier: 18.3.0
+    version: 18.3.0
   '@typescript-eslint/eslint-plugin':
     specifier: ^6.9.1
     version: 6.9.1(@typescript-eslint/parser@6.9.1)(eslint@8.52.0)(typescript@5.2.2)
@@ -4325,8 +4325,8 @@ packages:
     dependencies:
       '@types/react': 18.2.34
 
-  /@types/react-test-renderer@18.0.6:
-    resolution: {integrity: sha512-O2JT1J3/v/NaYHYmPf2DXBSqUGmp6iwhFPicES6Pc1Y90B9Qgu99mmaBGqfZFpVuXLzF/pNJB4K9ySL3iqFeXA==}
+  /@types/react-test-renderer@18.3.0:
+    resolution: {integrity: sha512-HW4MuEYxfDbOHQsVlY/XtOvNHftCVEPhJF2pQXXwcUiUF+Oyb0usgp48HSgpK5rt8m9KZb22yqOeZm+rrVG8gw==}
     dependencies:
       '@types/react': 18.2.34
     dev: true
@@ -7685,11 +7685,6 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       has-symbols: 1.0.3
-    dev: true
-
-  /has@1.0.4:
-    resolution: {integrity: sha512-qdSAmqLF6209RFj4VVItywPMbm3vWylknmB3nvNiUIs72xAimcM8nVYxYr7ncvZq5qzk9MKIZR8ijqD/1QuYjQ==}
-    engines: {node: '>= 0.4.0'}
     dev: true
 
   /hasown@2.0.0:
